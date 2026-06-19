@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+const whatsappUrl = 'https://wa.me/5567982094572'
+
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -30,7 +32,12 @@ function Header() {
           <a href="#contato">Contato</a>
         </nav>
 
-        <a className="header-action" href="#contato">
+        <a
+          className="header-action"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
           Chamar no WhatsApp
         </a>
       </div>

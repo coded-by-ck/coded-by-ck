@@ -1,5 +1,7 @@
 import StatusPanel from './StatusPanel'
 
+const whatsappUrl = 'https://wa.me/5567982094572'
+
 function Hero() {
   return (
     <section className="hero-section" id="inicio">
@@ -18,7 +20,12 @@ function Hero() {
             <a className="button button-primary" href="#projetos">
               Ver projetos
             </a>
-            <a className="button button-secondary" href="#contato">
+            <a
+              className="button button-secondary"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
               Chamar no WhatsApp
             </a>
           </div>

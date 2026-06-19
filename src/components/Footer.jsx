@@ -1,3 +1,6 @@
+const whatsappUrl = 'https://wa.me/5567982094572'
+const instagramUrl = 'https://www.instagram.com/codedby.ck/'
+
 function Footer() {
   return (
     <footer className="site-footer" id="contato">
@@ -11,10 +14,20 @@ function Footer() {
           </p>
 
           <div className="footer-actions">
-            <a className="button button-primary" href="#">
+            <a
+              className="button button-primary"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
               Chamar no WhatsApp
             </a>
-            <a className="button button-secondary" href="#">
+            <a
+              className="button button-secondary"
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
               Ver Instagram
             </a>
           </div>

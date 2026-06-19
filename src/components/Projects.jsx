@@ -1,6 +1,9 @@
 import { projects } from '../data/projects'
 
 function Projects() {
+  const getExternalLinkProps = (href) =>
+    href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {}
+
   return (
     <section className="section content-section" id="projetos">
       <div className="container">
@@ -35,10 +38,11 @@ function Projects() {
                   {project.actions.map((action, index) => (
                     <a
                       className={index === 0 ? 'button button-primary' : 'button button-secondary'}
-                      href="#contato"
-                      key={action}
+                      href={action.href}
+                      key={action.label}
+                      {...getExternalLinkProps(action.href)}
                     >
-                      {action}
+                      {action.label}
                     </a>
                   ))}
                 </div>
