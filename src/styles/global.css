@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 4%, rgba(255, 0, 51, 0.14), transparent 27rem),
+    radial-gradient(circle at 88% 18%, rgba(29, 140, 255, 0.055), transparent 22rem),
+    radial-gradient(circle at 52% 60%, rgba(139, 0, 16, 0.16), transparent 34rem),
+    linear-gradient(135deg, #030304 0%, #08080b 48%, #101014 100%);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+p,
+h1,
+h2,
+h3,
+a,
+button,
+li {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+h1 {
+  max-width: 760px;
+  font-size: clamp(3.8rem, 9vw, 7.4rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+::selection {
+  color: var(--text);
+  background: var(--red);
+}
+
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
