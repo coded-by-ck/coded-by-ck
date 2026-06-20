@@ -1133,8 +1133,84 @@
   font-size: 0.72rem;
 }
 
-.tool-card .tag-list {
-  align-items: flex-start;
+.tool-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 22px;
+  overflow: hidden;
+}
+
+.tool-card::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 86% 0%, rgba(29, 140, 255, 0.08), transparent 12rem),
+    radial-gradient(circle at 16% 100%, rgba(255, 27, 45, 0.1), transparent 14rem),
+    linear-gradient(180deg, rgba(255, 27, 45, 0.04), transparent 48%);
+}
+
+.tool-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tool-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tool-card-top span,
+.tool-card-top small {
+  border: 1px solid rgba(255, 27, 45, 0.18);
+  padding: 5px 8px;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.tool-card-top span {
+  color: var(--red);
+  background: rgba(255, 27, 45, 0.055);
+}
+
+.tool-card-top small {
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.026);
+}
+
+.tool-card p {
+  min-height: 58px;
+  line-height: 1.46;
+}
+
+.tool-list {
+  display: grid;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.tool-list li {
+  border: 1px solid rgba(255, 27, 45, 0.11);
+  padding: 8px 10px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.tool-list li::before {
+  content: ">";
+  margin-right: 8px;
+  color: var(--red);
+  font-weight: 900;
 }
 
 .client-mode-section .section-heading p:last-child {
@@ -1828,6 +1904,14 @@
     padding: 18px;
   }
 
+  .tool-card {
+    padding: 18px;
+  }
+
+  .tool-card p {
+    min-height: 0;
+  }
+
   .differential-card p {
     min-height: 0;
   }
@@ -2192,6 +2276,23 @@
 
   .differential-card {
     padding: 15px;
+  }
+
+  .tool-card {
+    padding: 16px;
+  }
+
+  .tool-card-top {
+    margin-bottom: 14px;
+  }
+
+  .tool-list {
+    gap: 6px;
+    padding-top: 12px;
+  }
+
+  .tool-list li {
+    font-size: 0.78rem;
   }
 
   .differential-card-top {

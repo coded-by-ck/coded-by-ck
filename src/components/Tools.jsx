@@ -16,8 +16,13 @@ function Tools() {
               style={{ '--reveal-delay': `${index * 70}ms` }}
               key={group.title}
             >
+              <div className="tool-card-top">
+                <span>{group.code}</span>
+                <small>{String(index + 1).padStart(2, '0')}</small>
+              </div>
               <h3>{group.title}</h3>
-              <ul className="tag-list">
+              <p>{group.description}</p>
+              <ul className="tool-list">
                 {group.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
