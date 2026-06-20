@@ -460,11 +460,11 @@
 }
 
 #projetos {
-  padding-bottom: clamp(30px, 4vw, 44px);
+  padding-bottom: clamp(20px, 3vw, 32px);
 }
 
 .client-mode-section {
-  padding-top: clamp(32px, 4vw, 46px);
+  padding-top: clamp(24px, 3vw, 34px);
 }
 
 .tools-grid {
