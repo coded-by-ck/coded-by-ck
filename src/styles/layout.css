@@ -438,6 +438,12 @@
   box-shadow: 0 0 18px rgba(255, 27, 45, 0.38);
 }
 
+.section-support {
+  max-width: 680px;
+  margin: 16px auto 0;
+  color: var(--muted);
+}
+
 .card-grid,
 .projects-grid,
 .tools-grid {
@@ -528,6 +534,79 @@
 
 .symbol-icon {
   font-size: 1.15rem;
+}
+
+.differential-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.differential-card::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 84% 0%, rgba(255, 27, 45, 0.12), transparent 12rem),
+    linear-gradient(180deg, rgba(255, 27, 45, 0.045), transparent 52%);
+}
+
+.differential-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.differential-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.differential-card .symbol-icon {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.differential-tag {
+  border: 1px solid rgba(255, 27, 45, 0.18);
+  padding: 4px 7px;
+  color: var(--muted);
+  background: rgba(255, 27, 45, 0.045);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.differential-card p {
+  min-height: 64px;
+  line-height: 1.46;
+}
+
+.differential-card strong {
+  display: block;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 27, 45, 0.12);
+  padding-top: 9px;
+  color: var(--text);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.differential-card strong::before {
+  content: ">";
+  margin-right: 8px;
+  color: var(--red);
+}
+
+#sobre .card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .service-card {
@@ -1724,6 +1803,10 @@
     grid-template-columns: 1fr;
   }
 
+  #sobre .card-grid {
+    grid-template-columns: 1fr;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -1739,6 +1822,14 @@
 
   .service-card {
     padding: 20px;
+  }
+
+  .differential-card {
+    padding: 18px;
+  }
+
+  .differential-card p {
+    min-height: 0;
   }
 
   .service-card p {
@@ -2097,6 +2188,18 @@
 
   .service-card {
     padding: 17px;
+  }
+
+  .differential-card {
+    padding: 15px;
+  }
+
+  .differential-card-top {
+    margin-bottom: 12px;
+  }
+
+  .section-support {
+    font-size: 0.9rem;
   }
 
   .service-card-top {

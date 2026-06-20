@@ -6,7 +6,10 @@ function Differentials() {
       <div className="container">
         <div className="section-heading">
           <p className="section-kicker">Diferenciais</p>
-          <h2>Design, código e leitura de negócio.</h2>
+          <h2>O que eu faço diferente</h2>
+          <p className="section-support">
+            Projeto com estética, estratégia e código pensando no valor real para o negócio.
+          </p>
         </div>
 
         <div className="card-grid">
@@ -16,9 +19,13 @@ function Differentials() {
               style={{ '--reveal-delay': `${index * 70}ms` }}
               key={differential.title}
             >
-              <span className="symbol-icon">{differential.icon}</span>
+              <div className="differential-card-top">
+                <span className="symbol-icon">{differential.icon}</span>
+                <span className="differential-tag">{differential.tag}</span>
+              </div>
               <h3>{differential.title}</h3>
               <p>{differential.description}</p>
+              <strong>{differential.detail}</strong>
             </article>
           ))}
         </div>
