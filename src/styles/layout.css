@@ -2038,9 +2038,10 @@
 }
 
 .project-card--invictus.project-showcase--responsive .project-preview--responsive-showcase {
-  height: 354px;
+  height: 334px;
   min-height: 0;
   max-height: none;
+  padding: 18px;
   background:
     radial-gradient(circle at 28% 20%, rgba(255, 27, 45, 0.24), transparent 11rem),
     radial-gradient(circle at 78% 100%, rgba(139, 0, 16, 0.34), transparent 14rem),
@@ -2050,46 +2051,65 @@
 .project-card--invictus.project-showcase--responsive
   .project-preview--responsive-showcase
   .project-screen--desktop {
-  top: 54px;
-  left: 18px;
-  width: min(82%, 480px);
-  height: 216px;
-  object-fit: cover;
-  object-position: 50% 38%;
-  opacity: 0.92;
+  top: 40px;
+  left: 50%;
+  width: calc(100% - 36px);
+  height: 238px;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.96;
+  background: rgba(0, 0, 0, 0.28);
+  transform: translateX(-50%);
 }
 
 .project-card--invictus.project-showcase--responsive
   .project-preview--responsive-showcase
   .project-screen--mobile {
-  right: 34px;
-  bottom: 24px;
-  height: 258px;
-  max-width: 30%;
+  right: 18px;
+  bottom: 16px;
+  height: 196px;
+  max-width: 27%;
   border-radius: 16px;
+}
+
+.project-card--invictus.project-showcase--responsive:hover
+  .project-preview--responsive-showcase
+  .project-screen--desktop {
+  transform: translateX(-50%) scale(1.01);
 }
 
 @media (max-width: 768px) {
   .project-card--invictus.project-showcase--responsive .project-preview--responsive-showcase {
     height: 236px;
+    padding: 12px;
   }
 
   .project-card--invictus.project-showcase--responsive
     .project-preview--responsive-showcase
     .project-screen--desktop {
-    top: 38px;
-    left: 12px;
-    width: 84%;
-    height: 138px;
+    top: 24px;
+    left: 50%;
+    width: calc(100% - 28px);
+    height: 144px;
+    max-height: none;
+    object-fit: contain;
+    transform: translateX(-50%);
   }
 
   .project-card--invictus.project-showcase--responsive
     .project-preview--responsive-showcase
     .project-screen--mobile {
-    right: 18px;
-    bottom: 13px;
-    height: 184px;
-    max-width: 32%;
+    right: 10px;
+    bottom: 8px;
+    height: 112px;
+    max-width: 27%;
+  }
+
+  .project-card--invictus.project-showcase--responsive:hover
+    .project-preview--responsive-showcase
+    .project-screen--desktop {
+    transform: translateX(-50%) scale(1.01);
   }
 }
 
@@ -2101,17 +2121,19 @@
   .project-card--invictus.project-showcase--responsive
     .project-preview--responsive-showcase
     .project-screen--desktop {
-    top: 37px;
-    width: 83%;
-    height: 124px;
+    top: 22px;
+    width: calc(100% - 24px);
+    height: 126px;
+    max-height: none;
   }
 
   .project-card--invictus.project-showcase--responsive
     .project-preview--responsive-showcase
     .project-screen--mobile {
-    right: 15px;
-    height: 168px;
-    max-width: 33%;
+    right: 9px;
+    bottom: 8px;
+    height: 102px;
+    max-width: 28%;
   }
 }
 
