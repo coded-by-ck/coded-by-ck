@@ -1,53 +1,70 @@
+import cardapioAuauImage from '../assets/projects/cardapio-auau.png'
+import cardapioAuauMobileImage from '../assets/projects/cardapio-auau-mobile.png'
+import invictusDesktopImage from '../assets/invictus.png'
+import invictusImage from '../assets/projects/invictus-mobile.png'
+import ladoALadoImage from '../assets/projects/lado-a-lado.png'
+import rhemaCarImage from '../assets/projects/rhema-car.png'
+
 export const projects = [
   {
     title: 'Invictus Barber Studio',
     description:
-      'Site premium com presença digital forte, agendamento online e visual marcante para barbearia.',
-    tags: ['Website', 'Agendamento', 'Landing Page'],
+      'Site premium para barbearia com visual escuro/dourado, presença digital forte e agendamento online.',
+    tags: ['Barbearia', 'Agendamento', 'Mobile First'],
+    image: invictusImage,
+    desktopImage: invictusDesktopImage,
+    imageFit: 'contain',
+    layout: 'mobile',
+    responsiveShowcase: true,
     actions: [
       // Trocar por link real do projeto quando publicado.
       { label: 'Ver projeto', href: '#' },
       // Trocar por link real do estudo/raio-x quando existir.
       { label: 'Raio-X', href: '#' },
     ],
-    initials: 'IB',
   },
   {
     title: 'Rhema Car',
     description:
-      'Página automotiva com estética industrial, foco em confiança e apresentação clara dos serviços.',
-    tags: ['MultiPage', 'Performance', 'Automotivo'],
+      'Site institucional para retífica automotiva, com estética industrial, técnica e profissional.',
+    tags: ['Automotivo', 'Institucional', 'Responsivo'],
+    image: rhemaCarImage,
+    layout: 'wide',
     actions: [
       // Trocar por link real do projeto quando publicado.
       { label: 'Ver projeto', href: '#' },
       // Trocar por link real do estudo/raio-x quando existir.
       { label: 'Raio-X', href: '#' },
     ],
-    initials: 'RC',
   },
   {
-    title: 'Cardápio Digital',
+    title: 'Dog do AUAU',
     description:
-      'Cardápio online responsivo para pedidos rápidos, QR Code e contato direto pelo WhatsApp.',
-    tags: ['Food App', 'Sistema', 'Pedido online'],
+      'Cardápio digital responsivo para food truck, com visual marcante, WhatsApp e navegação rápida.',
+    tags: ['Cardápio Digital', 'Food Truck', 'WhatsApp'],
+    image: cardapioAuauMobileImage,
+    desktopImage: cardapioAuauImage,
+    imageFit: 'contain',
+    layout: 'mobile',
+    responsiveShowcase: true,
     actions: [
       // Trocar por link real do projeto quando publicado.
       { label: 'Ver projeto', href: '#' },
       { label: 'GitHub', href: 'https://github.com/coded-by-ck' },
     ],
-    initials: 'CD',
   },
   {
-    title: 'HumaPet',
+    title: 'Lado a Lado Barber',
     description:
-      'Projeto experimental com visual pet, autenticação, feed e experiência social.',
-    tags: ['Pet Shop', 'Firebase', 'Landing Page'],
+      'Landing page para barbearia com identidade visual forte, estética premium e foco em agendamento.',
+    tags: ['Barbearia', 'Landing Page', 'Responsivo'],
+    image: ladoALadoImage,
+    layout: 'half',
     actions: [
       // Trocar por link real do projeto quando publicado.
       { label: 'Ver projeto', href: '#' },
       // Trocar por link real do estudo/raio-x quando existir.
       { label: 'Raio-X', href: '#' },
     ],
-    initials: 'HP',
   },
 ]
