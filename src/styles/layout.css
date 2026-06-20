@@ -902,26 +902,48 @@
 
 .client-mode-layout {
   display: grid;
-  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
-  gap: 22px;
-  align-items: stretch;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+  gap: 18px;
+  align-items: start;
 }
 
 .client-mode-options {
   display: grid;
-  gap: 12px;
+  gap: 10px;
+  align-content: start;
+  padding: 10px;
+  border: 1px solid rgba(255, 27, 45, 0.1);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.026), rgba(255, 255, 255, 0.006)),
+    rgba(5, 5, 8, 0.34);
+}
+
+.client-mode-options-label {
+  grid-column: 1 / -1;
+  margin: 2px 8px 4px;
+  color: var(--red);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .client-mode-card {
-  min-height: 64px;
-  border: 1px solid rgba(255, 255, 255, 0.085);
-  padding: 0 20px;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  min-height: 58px;
+  border: 1px solid rgba(255, 27, 45, 0.12);
+  padding: 0 16px;
   color: var(--muted);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
-    rgba(14, 14, 19, 0.74);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.044), rgba(255, 255, 255, 0.012)),
+    rgba(10, 10, 14, 0.78);
   text-align: left;
   font-weight: 800;
+  line-height: 1.2;
   cursor: pointer;
   transition:
     border-color 180ms ease,
@@ -930,37 +952,91 @@
     transform 180ms ease;
 }
 
+.client-mode-card::after {
+  position: absolute;
+  inset: 10px 0 auto auto;
+  width: 2px;
+  height: calc(100% - 20px);
+  content: "";
+  background: rgba(255, 27, 45, 0.16);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.client-mode-card-index {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 27, 45, 0.18);
+  color: var(--red);
+  background: rgba(255, 27, 45, 0.055);
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
 .client-mode-card:hover,
 .client-mode-card:focus-visible {
   border-color: rgba(255, 27, 45, 0.42);
   color: var(--text);
+  background:
+    linear-gradient(145deg, rgba(255, 27, 45, 0.075), rgba(255, 255, 255, 0.018)),
+    rgba(12, 10, 13, 0.84);
   outline: none;
+  transform: translateX(3px);
 }
 
 .client-mode-card.is-active {
-  border-color: rgba(255, 27, 45, 0.72);
+  border-color: rgba(255, 27, 45, 0.82);
   color: var(--text);
   background:
-    linear-gradient(135deg, rgba(255, 0, 51, 0.17), rgba(255, 255, 255, 0.035)),
+    radial-gradient(circle at 100% 50%, rgba(255, 27, 45, 0.18), transparent 9rem),
+    linear-gradient(135deg, rgba(255, 0, 51, 0.18), rgba(255, 255, 255, 0.035)),
     rgba(18, 9, 11, 0.9);
-  box-shadow: 0 0 34px rgba(255, 27, 45, 0.16);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.22),
+    0 0 36px rgba(255, 27, 45, 0.2);
   transform: translateX(4px);
+}
+
+.client-mode-card.is-active::after {
+  opacity: 1;
+}
+
+.client-mode-card.is-active .client-mode-card-index {
+  border-color: rgba(255, 27, 45, 0.64);
+  color: #fff;
+  background: linear-gradient(135deg, var(--red-strong), var(--red-dark));
+  box-shadow: 0 0 22px rgba(255, 27, 45, 0.22);
 }
 
 .client-mode-panel {
   position: relative;
   overflow: hidden;
   min-height: 100%;
-  padding: 34px;
+  padding: 30px;
   border: 1px solid rgba(255, 27, 45, 0.48);
   background:
-    radial-gradient(circle at top right, rgba(255, 0, 51, 0.16), transparent 18rem),
+    radial-gradient(circle at top right, rgba(255, 0, 51, 0.18), transparent 18rem),
+    radial-gradient(circle at 18% 100%, rgba(139, 0, 16, 0.16), transparent 20rem),
     linear-gradient(145deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.014)),
     var(--card);
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.34),
     0 0 42px rgba(255, 27, 45, 0.13);
   backdrop-filter: blur(18px);
+}
+
+.client-mode-panel::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 27, 45, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 27, 45, 0.025) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.55), transparent 68%);
 }
 
 .client-mode-panel::after {
@@ -978,6 +1054,7 @@
 }
 
 .panel-label {
+  display: inline-flex;
   color: var(--red);
   font-size: 0.74rem;
   font-weight: 900;
@@ -985,31 +1062,55 @@
   text-transform: uppercase;
 }
 
+.client-mode-panel-status {
+  float: right;
+  border: 1px solid rgba(255, 27, 45, 0.22);
+  padding: 6px 9px;
+  color: var(--text);
+  background: rgba(255, 27, 45, 0.075);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .client-mode-panel h3 {
-  margin: 12px 0 0;
-  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  clear: both;
+  margin: 14px 0 0;
+  font-size: clamp(1.8rem, 3.4vw, 2.85rem);
   line-height: 1.02;
 }
 
 .client-mode-panel p:not(.panel-label) {
   max-width: 640px;
-  margin-top: 18px;
+  margin-top: 16px;
   color: var(--muted);
   font-size: 1.02rem;
+}
+
+.client-mode-panel .panel-section-label {
+  margin-top: 24px;
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .client-mode-panel ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 28px;
+  gap: 9px;
+  margin-top: 12px;
 }
 
 .client-mode-panel li {
   border: 1px solid rgba(255, 27, 45, 0.12);
-  padding: 12px 14px;
+  padding: 11px 13px;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.035);
+  background:
+    linear-gradient(135deg, rgba(255, 27, 45, 0.045), rgba(255, 255, 255, 0.022)),
+    rgba(255, 255, 255, 0.028);
 }
 
 .client-mode-panel li::before {
@@ -1017,6 +1118,49 @@
   margin-right: 8px;
   color: var(--red);
   font-weight: 900;
+}
+
+.client-mode-result {
+  margin-top: 18px;
+  border: 1px solid rgba(255, 27, 45, 0.22);
+  padding: 16px 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 27, 45, 0.1), rgba(255, 255, 255, 0.024)),
+    rgba(6, 6, 8, 0.52);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.client-mode-result span {
+  color: var(--red);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.client-mode-panel .client-mode-result p {
+  margin: 8px 0 0;
+  color: var(--text);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.client-mode-cta {
+  width: fit-content;
+  min-height: 40px;
+  margin-top: 18px;
+  padding-inline: 16px;
+  font-size: 0.78rem;
+  box-shadow:
+    0 14px 30px rgba(255, 0, 51, 0.18),
+    0 0 18px rgba(255, 27, 45, 0.16);
+}
+
+.client-mode-cta:hover,
+.client-mode-cta:focus-visible {
+  box-shadow:
+    0 16px 34px rgba(255, 0, 51, 0.24),
+    0 0 24px rgba(255, 27, 45, 0.22);
 }
 
 .section-compact {
@@ -1269,6 +1413,10 @@
 
   .client-mode-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .client-mode-panel {
+    min-height: auto;
   }
 }
 
@@ -1601,6 +1749,15 @@
     grid-template-columns: 1fr;
   }
 
+  .client-mode-layout {
+    gap: 14px;
+  }
+
+  .client-mode-options {
+    gap: 7px;
+    padding: 8px;
+  }
+
   .client-mode-card,
   .client-mode-card.is-active,
   .client-mode-card.reveal.is-visible.is-active {
@@ -1608,11 +1765,52 @@
   }
 
   .client-mode-card {
-    min-height: 56px;
+    min-height: 48px;
+    gap: 10px;
+    padding-inline: 12px;
+  }
+
+  .client-mode-options-label {
+    margin-inline: 4px;
+  }
+
+  .client-mode-card-index {
+    width: 28px;
+    height: 28px;
   }
 
   .client-mode-panel {
-    padding: 24px;
+    padding: 20px;
+  }
+
+  .client-mode-panel .panel-section-label {
+    margin-top: 18px;
+  }
+
+  .client-mode-panel ul {
+    gap: 7px;
+    margin-top: 9px;
+  }
+
+  .client-mode-panel li {
+    padding: 9px 11px;
+  }
+
+  .client-mode-result {
+    margin-top: 14px;
+    padding: 14px;
+  }
+
+  .client-mode-cta {
+    width: 100%;
+    min-height: 42px;
+    margin-top: 14px;
+  }
+
+  .client-mode-panel-status {
+    float: none;
+    display: inline-flex;
+    margin-top: 10px;
   }
 
   .footer-container {
@@ -1686,6 +1884,14 @@
     font-size: 0.96rem;
   }
 
+  .client-mode-panel .panel-section-label {
+    font-size: 0.68rem;
+  }
+
+  .client-mode-panel .client-mode-result p {
+    font-size: 0.88rem;
+  }
+
   .terminal-list {
     font-size: 0.78rem;
   }
@@ -1694,6 +1900,27 @@
   .client-mode-panel,
   .glass-card {
     padding: 20px;
+  }
+
+  .client-mode-section .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .client-mode-options {
+    padding: 7px;
+  }
+
+  .client-mode-card {
+    min-height: 48px;
+    font-size: 0.84rem;
+  }
+
+  .client-mode-panel h3 {
+    font-size: clamp(1.45rem, 10vw, 1.95rem);
+  }
+
+  .client-mode-panel li {
+    font-size: 0.84rem;
   }
 
   .status-panel-header {

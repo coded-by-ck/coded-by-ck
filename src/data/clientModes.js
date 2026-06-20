@@ -11,6 +11,7 @@ export const clientModes = [
       'WhatsApp integrado',
       'Design de impacto',
     ],
+    result: 'Mais agendamentos, presença forte e uma marca premium desde o primeiro clique.',
   },
   {
     id: 'oficina',
@@ -24,6 +25,7 @@ export const clientModes = [
       'Botão direto para orçamento',
       'Visual técnico e profissional',
     ],
+    result: 'Mais confiança para quem pesquisa sua oficina e um caminho direto para pedir orçamento.',
   },
   {
     id: 'lanchonete',
@@ -37,6 +39,7 @@ export const clientModes = [
       'Fotos dos produtos',
       'Pedido pelo WhatsApp',
     ],
+    result: 'Pedidos mais rápidos, menos atrito no atendimento e um cardápio fácil de compartilhar.',
   },
   {
     id: 'sistema',
@@ -50,6 +53,7 @@ export const clientModes = [
       'Histórico organizado',
       'Painel administrativo',
     ],
+    result: 'Rotina mais organizada, dados centralizados e decisões mais fáceis no dia a dia.',
   },
   {
     id: 'personalizado',
@@ -63,5 +67,6 @@ export const clientModes = [
       'Interações criativas',
       'Projeto sob medida',
     ],
+    result: 'Uma solução com identidade própria para transformar uma ideia diferente em presença real.',
   },
 ]
