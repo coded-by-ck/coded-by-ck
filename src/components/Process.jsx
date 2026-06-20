@@ -18,8 +18,10 @@ function Process() {
             >
               <span className="process-number">{String(index + 1).padStart(2, '0')}</span>
               <div>
+                <span className="process-label">{step.label}</span>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
+                <small>{step.detail}</small>
               </div>
             </article>
           ))}
