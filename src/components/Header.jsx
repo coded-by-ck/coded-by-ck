@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import logoCabecalho from '../assets/logos/logo-cabecalho.png'
 
 const whatsappUrl = 'https://wa.me/5567982094572'
 
@@ -20,7 +21,12 @@ function Header() {
     <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
       <div className="container header-container">
         <a className="brand" href="#inicio" aria-label="Coded by CK - Início">
-          <span className="brand-mark">CK</span>
+          <img
+            className="brand-mark"
+            src={logoCabecalho}
+            alt=""
+            aria-hidden="true"
+          />
           <span className="brand-name">Coded by CK</span>
         </a>
 

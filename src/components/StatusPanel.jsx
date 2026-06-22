@@ -1,38 +1,16 @@
-const statusItems = [
-  'Visual',
-  'Responsivo ativo',
-  'Código limpo',
-  'Performance',
-  'Identidade própria',
-]
+import cardStatus from '../assets/card-status.png'
 
 function StatusPanel() {
   return (
-    <aside className="status-panel">
-      <div className="status-panel-header">
-        <h2>CK SYSTEM STATUS</h2>
-        <span>ONLINE</span>
+    <div className="hero-status-visual">
+      <div className="hero-status-image-wrap">
+        <img
+          className="hero-status-image"
+          src={cardStatus}
+          alt="CK System Status"
+        />
       </div>
-
-      <div className="status-list">
-        {statusItems.map((item) => (
-          <div className="status-item" key={item}>
-            <div className="status-meta">
-              <span>{item}</span>
-              <strong>100%</strong>
-            </div>
-            <div className="progress-track" aria-hidden="true">
-              <div className="progress-bar" />
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="status-footer">
-        <span>Deploy contínuo</span>
-        <span>v2.5.1</span>
-      </div>
-    </aside>
+    </div>
   )
 }
 
