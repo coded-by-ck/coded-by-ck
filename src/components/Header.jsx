@@ -27,7 +27,6 @@ function Header() {
             alt=""
             aria-hidden="true"
           />
-          <span className="brand-name">Coded by CK</span>
         </a>
 
         <nav className="site-nav" aria-label="Navegação principal">
