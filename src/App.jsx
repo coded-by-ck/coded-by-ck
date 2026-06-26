@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import TechStrip from './components/TechStrip'
@@ -8,10 +9,25 @@ import ClientMode from './components/ClientMode'
 import Differentials from './components/Differentials'
 import Tools from './components/Tools'
 import Footer from './components/Footer'
+import Loader from './components/Loader'
 import { useReveal } from './hooks/useReveal'
 
 function App() {
+  const [showLoader, setShowLoader] = useState(true)
+
   useReveal()
+
+  useEffect(() => {
+    const loaderTimer = window.setTimeout(() => {
+      setShowLoader(false)
+    }, 4400)
+
+    return () => window.clearTimeout(loaderTimer)
+  }, [])
+
+  if (showLoader) {
+    return <Loader />
+  }
 
   return (
     <>
