@@ -83,13 +83,24 @@ const cosmicDust = Array.from({ length: 150 }, (_, index) => {
     style: {
       '--angle': `${angle}deg`,
       '--radius': `${radius}px`,
-      '--length': `${26 + ((index * 9) % 72)}px`,
+      '--length': `${12 + ((index * 7) % 34)}px`,
       '--z': `${-240 + ((index * 29) % 480)}px`,
-      '--color': index % 4 === 0 ? 'rgba(255, 34, 68, 0.72)' : index % 3 === 0 ? 'rgba(180, 92, 255, 0.68)' : 'rgba(210, 247, 255, 0.42)',
+      '--color': index % 4 === 0 ? 'rgba(255, 34, 68, 0.5)' : index % 3 === 0 ? 'rgba(180, 92, 255, 0.48)' : 'rgba(210, 247, 255, 0.36)',
       '--delay': `${(index % 18) * 0.05}s`,
     },
   }
 })
+
+const constellations = Array.from({ length: 34 }, (_, index) => ({
+  id: `constellation-${index}`,
+  style: {
+    '--x': `${6 + ((index * 29) % 88)}%`,
+    '--y': `${7 + ((index * 43) % 84)}%`,
+    '--line': `${18 + ((index * 13) % 54)}px`,
+    '--rotate': `${(index * 37) % 180}deg`,
+    '--delay': `${0.32 + (index % 10) * 0.08}s`,
+  },
+}))
 
 const codeFragments = Array.from({ length: 38 }, (_, index) => {
   const labels = ['CK_PAYLOAD', 'ROOT_ACCESS', 'SYSTEM_OVERRIDE', 'ACCESS_GRANTED', '0xCK_PROTOCOL', 'BREACH_ACTIVE', 'sha256:8f13', 'TRACE_MASKED']
@@ -137,6 +148,11 @@ function Loader() {
         <div className="cosmic-dust">
           {cosmicDust.map((dust) => (
             <span className="cosmic-dust__particle" key={dust.id} style={dust.style} />
+          ))}
+        </div>
+        <div className="cosmic-constellation">
+          {constellations.map((node) => (
+            <span className="cosmic-constellation__node" key={node.id} style={node.style} />
           ))}
         </div>
         <div className="cosmic-arm cosmic-arm--red">
