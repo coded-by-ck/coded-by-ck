@@ -55,7 +55,7 @@ const galaxyArms = Array.from({ length: 260 }, (_, index) => {
   }
 })
 
-const starField = Array.from({ length: 360 }, (_, index) => {
+const starField = Array.from({ length: 430 }, (_, index) => {
   const angle = (index * 137.5 + (index % 11) * 7) % 360
   const radius = 30 + ((index * 47) % 720)
   const size = index % 31 === 0 ? 3.2 : index % 13 === 0 ? 2.1 : index % 5 === 0 ? 1.45 : 1
@@ -74,7 +74,18 @@ const starField = Array.from({ length: 360 }, (_, index) => {
   }
 })
 
-const cosmicDust = Array.from({ length: 150 }, (_, index) => {
+const deepStars = Array.from({ length: 340 }, (_, index) => ({
+  id: `deep-star-${index}`,
+  style: {
+    '--x': `${2 + ((index * 37) % 96)}%`,
+    '--y': `${3 + ((index * 53) % 94)}%`,
+    '--size': `${index % 29 === 0 ? 2.4 : index % 11 === 0 ? 1.6 : 1}px`,
+    '--color': index % 17 === 0 ? '#d2f7ff' : index % 19 === 0 ? '#fff' : '#ffe5ee',
+    '--delay': `${(index % 20) * 0.05}s`,
+  },
+}))
+
+const cosmicDust = Array.from({ length: 190 }, (_, index) => {
   const angle = (index * 43 + (index % 6) * 17) % 360
   const radius = 72 + ((index * 37) % 620)
 
@@ -83,9 +94,9 @@ const cosmicDust = Array.from({ length: 150 }, (_, index) => {
     style: {
       '--angle': `${angle}deg`,
       '--radius': `${radius}px`,
-      '--length': `${12 + ((index * 7) % 34)}px`,
+      '--length': `${8 + ((index * 7) % 26)}px`,
       '--z': `${-240 + ((index * 29) % 480)}px`,
-      '--color': index % 4 === 0 ? 'rgba(255, 34, 68, 0.5)' : index % 3 === 0 ? 'rgba(180, 92, 255, 0.48)' : 'rgba(210, 247, 255, 0.36)',
+      '--color': index % 4 === 0 ? 'rgba(255, 34, 68, 0.42)' : index % 3 === 0 ? 'rgba(180, 92, 255, 0.44)' : 'rgba(210, 247, 255, 0.38)',
       '--delay': `${(index % 18) * 0.05}s`,
     },
   }
@@ -102,7 +113,7 @@ const constellations = Array.from({ length: 34 }, (_, index) => ({
   },
 }))
 
-const codeFragments = Array.from({ length: 38 }, (_, index) => {
+const codeFragments = Array.from({ length: 24 }, (_, index) => {
   const labels = ['CK_PAYLOAD', 'ROOT_ACCESS', 'SYSTEM_OVERRIDE', 'ACCESS_GRANTED', '0xCK_PROTOCOL', 'BREACH_ACTIVE', 'sha256:8f13', 'TRACE_MASKED']
   const angle = (index * 37 + 12) % 360
   const mid = angle + 52
@@ -115,8 +126,8 @@ const codeFragments = Array.from({ length: 38 }, (_, index) => {
       '--angle': `${angle}deg`,
       '--angle-mid': `${mid}deg`,
       '--angle-end': `${end}deg`,
-      '--radius': `${240 + ((index * 31) % 470)}px`,
-      '--radius-mid': `${112 + ((index * 17) % 160)}px`,
+      '--radius': `${250 + ((index * 31) % 390)}px`,
+      '--radius-mid': `${140 + ((index * 17) % 170)}px`,
       '--delay': `${0.18 + (index % 14) * 0.09}s`,
     },
   }
@@ -136,6 +147,11 @@ function Loader() {
       <div className="ck-loader__noise" aria-hidden="true" />
       <div className="cosmic-grid" aria-hidden="true" />
       <div className="cosmic-scan" aria-hidden="true" />
+      <div className="deep-starfield" aria-hidden="true">
+        {deepStars.map((star) => (
+          <span className="deep-star" key={star.id} style={star.style} />
+        ))}
+      </div>
 
       <div className="cosmic-galaxy" aria-hidden="true">
         <span className="cosmic-nebula cosmic-nebula--red" />
@@ -217,7 +233,7 @@ function Loader() {
         </div>
       </main>
 
-      <span className="ck-loader__final-flash" aria-hidden="true">WELCOME TO CK INTERFACE</span>
+      <span className="ck-loader__final-flash" aria-hidden="true">CK SYSTEM OVERRIDE</span>
       <span className="ck-loader__sr">Coded by CK interface online</span>
     </div>
   )
