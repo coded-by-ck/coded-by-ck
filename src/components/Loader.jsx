@@ -1,4 +1,5 @@
 import '../styles/loader.css'
+import logoCabecalho from '../assets/logos/logo-cabecalho.png'
 
 const systemLogs = [
   'ck@root:~$ breach --cosmic-shell',
@@ -220,8 +221,11 @@ function Loader() {
 
       <main className="loader-core" aria-hidden="true">
         <span className="loader-core__eyebrow">CK BREACH PROTOCOL</span>
-        <span className="loader-core__mark">CK</span>
-        <h1>CK SYSTEM OVERRIDE</h1>
+        <span className="loader-core__mark">
+          <img className="loader-core__logo loader-core__logo--main" src={logoCabecalho} alt="" />
+          <img className="loader-core__logo loader-core__logo--ghost" src={logoCabecalho} alt="" />
+        </span>
+        <h1>SYSTEM OVERRIDE</h1>
         <p>CODED BY CK</p>
         <div className="loader-core__tags">
           {scanTags.map((tag) => (

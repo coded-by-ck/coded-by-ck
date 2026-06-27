@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const loaderTimer = window.setTimeout(() => {
       setShowLoader(false)
-    }, 4400)
+    }, 6000)
 
     return () => window.clearTimeout(loaderTimer)
   }, [])

@@ -14,7 +14,7 @@
     linear-gradient(180deg, #000 0%, #040006 48%, #000 100%);
   pointer-events: auto;
   perspective: 1500px;
-  animation: ckLoaderExit 4.6s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+  animation: ckLoaderExit 6s cubic-bezier(0.7, 0, 0.84, 0) forwards;
 }
 
 .ck-loader::before,
@@ -39,7 +39,7 @@
   background-size: 44px 44px, 44px 44px, 220px 220px, 280px 280px;
   mask-image: radial-gradient(circle at center, #000 0 58%, transparent 86%);
   opacity: 0.72;
-  animation: ckAmbientGrid 4.6s linear forwards;
+  animation: ckAmbientGrid 6s linear forwards;
 }
 
 .ck-loader::after {
@@ -49,7 +49,7 @@
     linear-gradient(180deg, transparent 0 38%, rgba(255, 0, 51, 0.18) 40%, transparent 46% 100%);
   mix-blend-mode: screen;
   opacity: 0.17;
-  animation: ckScanlines 4.6s linear forwards;
+  animation: ckScanlines 6s linear forwards;
 }
 
 .ck-loader__noise {
@@ -61,7 +61,7 @@
   background-size: 17px 17px, 23px 23px, 29px 29px;
   opacity: 0;
   mix-blend-mode: screen;
-  animation: ckSignalNoise 4.6s steps(2, end) forwards;
+  animation: ckSignalNoise 6s steps(2, end) forwards;
 }
 
 .ck-loader__floor {
@@ -76,7 +76,7 @@
   transform-origin: center top;
   opacity: 0;
   filter: drop-shadow(0 0 18px rgba(255, 0, 51, 0.26));
-  animation: ckFloorMaterialize 4.6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
+  animation: ckFloorMaterialize 6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
 }
 
 .ck-loader__circuits {
@@ -91,7 +91,7 @@
   opacity: 0;
   filter: drop-shadow(0 0 12px rgba(255, 0, 51, 0.28));
   mask-image: radial-gradient(circle at center, #000 0 64%, transparent 88%);
-  animation: ckCircuitPulse 4.6s ease forwards;
+  animation: ckCircuitPulse 6s ease forwards;
 }
 
 .ck-loader__stage {
@@ -100,7 +100,7 @@
   width: min(96vw, 1240px);
   min-height: min(80vh, 700px);
   transform-style: preserve-3d;
-  animation: ckStageEnter 4.6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
+  animation: ckStageEnter 6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
 }
 
 .ck-loader__halo {
@@ -116,7 +116,7 @@
     0 0 52px rgba(255, 0, 51, 0.2),
     inset 0 0 64px rgba(177, 60, 255, 0.14);
   opacity: 0;
-  animation: ckHaloSpin 4.6s ease forwards;
+  animation: ckHaloSpin 6s ease forwards;
 }
 
 .ck-loader__halo::before,
@@ -188,7 +188,7 @@
     repeating-linear-gradient(180deg, transparent 0 22px, rgba(255, 27, 45, 0.075) 23px, transparent 24px);
   opacity: 0.34;
   transform: translateX(-80%);
-  animation: ckGlassSweep 4.6s ease forwards;
+  animation: ckGlassSweep 6s ease forwards;
 }
 
 .ck-loader__dashboard::after,
@@ -208,7 +208,7 @@
   min-height: 450px;
   transform: translate3d(-50%, -50%, 150px) rotateX(2deg);
   opacity: 0;
-  animation: ckDashboardEnter 4.6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
+  animation: ckDashboardEnter 6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
 }
 
 .ck-loader__panel {
@@ -224,14 +224,14 @@
   top: 10%;
   left: -2%;
   transform: translate3d(-2px, 0, -170px) rotateY(18deg) rotateX(3deg);
-  animation: ckLeftPanelEnter 4.6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
+  animation: ckLeftPanelEnter 6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
 }
 
 .ck-loader__panel--right {
   top: 14%;
   right: -2%;
   transform: translate3d(2px, 0, -165px) rotateY(-19deg) rotateX(3deg);
-  animation: ckRightPanelEnter 4.6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
+  animation: ckRightPanelEnter 6s cubic-bezier(0.18, 0.78, 0.16, 1) forwards;
 }
 
 .ck-loader__dashboard-top,
@@ -298,7 +298,7 @@
   filter: blur(0.4px) drop-shadow(0 0 26px rgba(255, 0, 51, 0.24));
   opacity: 0;
   transform: translate(-50%, -50%) rotateX(62deg) scale(0.9);
-  animation: ckPortalField 4.6s ease forwards;
+  animation: ckPortalField 6s ease forwards;
   pointer-events: none;
 }
 
@@ -311,7 +311,7 @@
   transform: translate3d(-50%, -50%, 24px) rotateX(58deg) rotateZ(-8deg);
   transform-style: preserve-3d;
   opacity: 0;
-  animation: ckVortexMaterialize 4.6s ease forwards;
+  animation: ckVortexMaterialize 6s ease forwards;
 }
 
 .ck-loader__vortex::before,
@@ -351,7 +351,7 @@
   transform: translateZ(18px) rotateZ(-14deg) scaleX(1.2) scaleY(0.72);
   transform-style: preserve-3d;
   filter: saturate(1.35) contrast(1.22) brightness(1.22);
-  animation: ckGalaxyBody 4.6s ease forwards;
+  animation: ckGalaxyBody 6s ease forwards;
 }
 
 .ck-galaxy::before {
@@ -445,7 +445,7 @@
     translateX(var(--radius))
     translateZ(var(--z))
     scaleY(0.88);
-  animation: galaxyStarTwinkle 4.6s ease forwards;
+  animation: galaxyStarTwinkle 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -473,7 +473,7 @@
     translateZ(var(--z))
     rotate(16deg)
     scaleY(0.72);
-  animation: galaxyDustPull 4.6s ease forwards;
+  animation: galaxyDustPull 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -524,7 +524,7 @@
     rotate(var(--angle))
     translateX(var(--radius))
     translateZ(var(--z));
-  animation: galaxyArmParticle 4.6s ease forwards;
+  animation: galaxyArmParticle 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -558,7 +558,7 @@
     rotate(var(--angle))
     translateX(var(--radius))
     translateZ(var(--z));
-  animation: galaxyConstellationReveal 4.6s ease forwards;
+  animation: galaxyConstellationReveal 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -726,7 +726,7 @@
 
 .ck-loader__vortex-ring--outer {
   clip-path: polygon(4% 35%, 18% 16%, 44% 8%, 70% 14%, 91% 35%, 84% 46%, 62% 32%, 39% 30%, 20% 41%);
-  animation: ckVortexRingOuter 4.6s ease forwards;
+  animation: ckVortexRingOuter 6s ease forwards;
 }
 
 .ck-loader__vortex-ring--mid {
@@ -734,7 +734,7 @@
   background:
     conic-gradient(from 124deg, transparent 0 18%, rgba(177, 60, 255, 0.18) 22%, transparent 34% 58%, rgba(255, 0, 51, 0.14) 62%, transparent 75%),
     radial-gradient(ellipse at 50% 50%, transparent 0 48%, rgba(177, 60, 255, 0.1) 52%, transparent 62%);
-  animation: ckVortexRingMid 4.6s ease forwards;
+  animation: ckVortexRingMid 6s ease forwards;
 }
 
 .ck-loader__vortex-ring--inner {
@@ -743,7 +743,7 @@
     radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.2) 0 8%, transparent 28%),
     conic-gradient(from 250deg, rgba(255, 255, 255, 0.18), transparent 10% 42%, rgba(255, 0, 51, 0.16) 48%, transparent 62% 100%);
   box-shadow: 0 0 24px rgba(255, 0, 51, 0.22);
-  animation: ckVortexRingInner 4.6s ease forwards;
+  animation: ckVortexRingInner 6s ease forwards;
 }
 
 .ck-loader__vortex-ring--blade {
@@ -760,7 +760,7 @@
   inset: 6%;
   background: conic-gradient(from 0deg, rgba(255, 0, 51, 0.2), transparent 9% 19%, rgba(177, 60, 255, 0.18) 22%, transparent 33% 52%, rgba(255, 255, 255, 0.12) 55%, transparent 64%);
   clip-path: polygon(5% 44%, 18% 22%, 40% 10%, 66% 12%, 88% 30%, 96% 54%, 84% 62%, 68% 45%, 46% 38%, 26% 44%, 12% 58%);
-  animation: ckVortexSignal 4.6s ease forwards;
+  animation: ckVortexSignal 6s ease forwards;
 }
 
 .ck-loader__vortex-core {
@@ -796,7 +796,7 @@
     translateZ(var(--dust-z))
     scaleX(var(--dust-scale))
     scaleY(0.45);
-  animation: ckGalaxyDust 4.6s ease forwards;
+  animation: ckGalaxyDust 6s ease forwards;
 }
 
 .ck-loader__vortex-code {
@@ -812,7 +812,7 @@
     0 0 16px rgba(177, 60, 255, 0.24);
   white-space: nowrap;
   opacity: 0;
-  animation: ckVortexCode 4.6s ease forwards;
+  animation: ckVortexCode 6s ease forwards;
 }
 
 .ck-loader__vortex-spark {
@@ -826,7 +826,7 @@
     0 0 12px rgba(255, 0, 51, 0.9),
     0 0 22px rgba(177, 60, 255, 0.52);
   opacity: 0;
-  animation: ckVortexSpark 4.6s ease forwards;
+  animation: ckVortexSpark 6s ease forwards;
 }
 
 .ck-loader__vortex-spark:nth-last-child(1) { --spark-angle: 12deg; --spark-end: 108deg; --spark-radius: 198px; animation-delay: 0.18s; }
@@ -858,7 +858,7 @@
     translateX(var(--star-radius))
     translateZ(var(--star-z, 0))
     scale(var(--star-scale, 1));
-  animation: ckGalaxyStar 4.6s ease forwards;
+  animation: ckGalaxyStar 6s ease forwards;
 }
 
 .ck-loader__galaxy-star:nth-of-type(12) { --star-angle: 8deg; --star-radius: 148px; --star-size: 2px; --star-scale: 0.9; animation-delay: 0.2s; }
@@ -906,7 +906,7 @@
   font-size: clamp(0.66rem, 1.4vw, 0.86rem);
   opacity: 0;
   text-shadow: 0 0 16px rgba(255, 0, 51, 0.52);
-  animation: ckTextReveal 4.6s ease forwards;
+  animation: ckTextReveal 6s ease forwards;
 }
 
 .ck-loader__mark {
@@ -925,7 +925,7 @@
     0 0 76px rgba(255, 0, 51, 0.46);
   opacity: 0;
   transform: translateZ(120px) scale(0.88);
-  animation: ckMarkBreach 4.6s steps(1, end) forwards;
+  animation: ckMarkBreach 6s steps(1, end) forwards;
 }
 
 .ck-loader__headline {
@@ -935,7 +935,7 @@
   text-shadow:
     0 0 18px rgba(255, 0, 51, 0.4),
     2px 0 0 rgba(177, 60, 255, 0.28);
-  animation: ckHeadline 4.6s ease forwards;
+  animation: ckHeadline 6s ease forwards;
 }
 
 .ck-loader__confirmation {
@@ -944,7 +944,7 @@
   font-size: clamp(0.68rem, 1.55vw, 0.92rem);
   opacity: 0;
   text-shadow: 0 0 18px rgba(255, 0, 51, 0.78);
-  animation: ckConfirmation 4.6s ease forwards;
+  animation: ckConfirmation 6s ease forwards;
 }
 
 .ck-loader__ambient {
@@ -963,7 +963,7 @@
   white-space: nowrap;
   text-shadow: 0 0 12px rgba(255, 0, 51, 0.26);
   opacity: 0;
-  animation: ckAmbientLog 4.6s linear forwards;
+  animation: ckAmbientLog 6s linear forwards;
 }
 
 .ck-loader__ambient span:nth-child(1) { top: 18%; left: 7%; animation-delay: 0.28s; }
@@ -988,7 +988,7 @@
   background: rgba(255, 0, 51, 0.8);
   box-shadow: 0 0 14px rgba(255, 0, 51, 0.72);
   opacity: 0;
-  animation: ckParticleDrift 4.6s ease forwards;
+  animation: ckParticleDrift 6s ease forwards;
 }
 
 .ck-loader__particles span:nth-child(2n) {
@@ -1061,7 +1061,7 @@
   transform: translateY(6px);
   color: rgba(246, 247, 251, 0.68);
   text-shadow: 0 0 12px rgba(255, 27, 45, 0.24);
-  animation: ckLineReveal 4.6s ease forwards;
+  animation: ckLineReveal 6s ease forwards;
 }
 
 .ck-loader__terminal span::before {
@@ -1114,7 +1114,7 @@
   box-shadow: 0 0 18px rgba(255, 0, 51, 0.58);
   transform: scaleX(0);
   transform-origin: left;
-  animation: ckProgressFill 4.6s cubic-bezier(0.2, 0.76, 0.16, 1) forwards;
+  animation: ckProgressFill 6s cubic-bezier(0.2, 0.76, 0.16, 1) forwards;
 }
 
 .ck-loader__radar {
@@ -1213,7 +1213,7 @@
   position: absolute;
   top: -14%;
   text-shadow: 0 0 12px rgba(255, 27, 45, 0.28);
-  animation: ckDataFall 4.6s linear forwards;
+  animation: ckDataFall 6s linear forwards;
 }
 
 .ck-loader__stream span:nth-child(1) { left: 5%; animation-delay: 0.12s; }
@@ -1250,7 +1250,7 @@
     0 0 32px rgba(255, 0, 51, 0.72);
   opacity: 0;
   transform: scale(0.98);
-  animation: ckFinalFlash 4.6s steps(1, end) forwards;
+  animation: ckFinalFlash 6s steps(1, end) forwards;
 }
 
 .ck-loader__sr {
@@ -2376,14 +2376,14 @@
   background-size: 56px 56px, 56px 56px, 220px 220px, 260px 260px;
   mask-image: radial-gradient(circle at center, transparent 0 18%, black 28%, transparent 88%);
   opacity: 0;
-  animation: cosmicGridReveal 4.6s ease forwards;
+  animation: cosmicGridReveal 6s ease forwards;
 }
 
 .deep-starfield {
   inset: 0;
   z-index: 1;
   opacity: 0;
-  animation: deepStarfieldReveal 4.6s ease forwards;
+  animation: deepStarfieldReveal 6s ease forwards;
 }
 
 .deep-star {
@@ -2395,7 +2395,7 @@
   background: var(--color);
   box-shadow: 0 0 8px color-mix(in srgb, var(--color) 72%, transparent);
   opacity: 0;
-  animation: deepStarTwinkle 4.6s ease forwards;
+  animation: deepStarTwinkle 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -2407,7 +2407,7 @@
     repeating-linear-gradient(180deg, transparent 0 22px, rgba(255, 255, 255, 0.026) 23px, transparent 24px);
   mix-blend-mode: screen;
   opacity: 0;
-  animation: cosmicScan 4.6s ease forwards;
+  animation: cosmicScan 6s ease forwards;
 }
 
 .cosmic-galaxy {
@@ -2419,7 +2419,7 @@
   transform-style: preserve-3d;
   opacity: 0;
   filter: saturate(1.24) contrast(1.12) brightness(1.02);
-  animation: cosmicGalaxyEnter 4.6s ease forwards;
+  animation: cosmicGalaxyEnter 6s ease forwards;
 }
 
 .cosmic-galaxy::before {
@@ -2507,7 +2507,7 @@
     rotate(var(--angle))
     translateX(var(--radius))
     translateZ(var(--z));
-  animation: cosmicStarTwinkle 4.6s ease forwards;
+  animation: cosmicStarTwinkle 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -2533,7 +2533,7 @@
     translateX(var(--radius))
     translateZ(var(--z))
     scaleY(0.72);
-  animation: cosmicDustPull 4.6s ease forwards;
+  animation: cosmicDustPull 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -2580,7 +2580,7 @@
     rotate(var(--angle))
     translateX(var(--radius))
     translateZ(var(--z));
-  animation: cosmicArmParticle 4.6s ease forwards;
+  animation: cosmicArmParticle 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -2616,7 +2616,7 @@
   background: rgba(210, 247, 255, 0.72);
   box-shadow: 0 0 10px rgba(210, 247, 255, 0.52);
   opacity: 0;
-  animation: constellationReveal 4.6s ease forwards;
+  animation: constellationReveal 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -2676,7 +2676,7 @@
     translate(-50%, -50%)
     rotate(var(--angle))
     translateX(var(--radius));
-  animation: codeGravityPull 4.6s ease forwards;
+  animation: codeGravityPull 6s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -2694,7 +2694,7 @@
   text-transform: uppercase;
   background: linear-gradient(90deg, rgba(255, 45, 77, 0.11), transparent);
   opacity: 0;
-  animation: hudReveal 4.6s ease forwards;
+  animation: hudReveal 6s ease forwards;
 }
 
 .loader-hud span {
@@ -2739,7 +2739,7 @@
 
 .loader-terminal span {
   opacity: 0;
-  animation: terminalLineReveal 4.6s ease forwards;
+  animation: terminalLineReveal 6s ease forwards;
 }
 
 .loader-terminal span:nth-child(1) { animation-delay: 0.28s; }
@@ -2764,7 +2764,7 @@
   top: -10vh;
   white-space: nowrap;
   text-shadow: 0 0 12px rgba(255, 45, 77, 0.24);
-  animation: streamFall 4.6s linear forwards;
+  animation: streamFall 6s linear forwards;
 }
 
 .loader-stream span:nth-child(1) { left: 6%; animation-delay: 0.12s; }
@@ -2812,39 +2812,51 @@
   text-transform: uppercase;
   opacity: 0;
   text-shadow: 0 0 18px rgba(255, 45, 77, 0.72);
-  animation: centralTextReveal 4.6s ease forwards;
+  animation: centralTextReveal 6s ease forwards;
 }
 
 .loader-core__mark {
-  margin: 8px 0 10px;
-  color: transparent;
-  font-family: var(--font-tech);
-  font-size: clamp(7.8rem, 20vw, 15rem);
-  font-weight: 900;
-  line-height: 0.74;
-  letter-spacing: -0.12em;
-  background:
-    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0 3px, rgba(255, 210, 220, 0.76) 4px 6px, rgba(180, 92, 255, 0.78) 7px 8px),
-    linear-gradient(180deg, #fff 0%, #ffdce5 30%, #ff5a72 58%, #b45cff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  display: grid;
+  place-items: center;
+  width: clamp(16rem, 42vw, 32rem);
+  margin: 2px 0 12px;
+  aspect-ratio: 1.58;
   opacity: 0;
-  text-shadow:
-    -5px 0 0 rgba(180, 92, 255, 0.58),
-    5px 0 0 rgba(255, 45, 77, 0.64),
-    0 0 24px rgba(255, 45, 77, 0.82),
-    0 0 88px rgba(180, 92, 255, 0.58);
-  animation: centralMarkBreach 4.6s steps(1, end) forwards;
+  filter:
+    drop-shadow(-7px 0 0 rgba(180, 92, 255, 0.34))
+    drop-shadow(7px 0 0 rgba(255, 45, 77, 0.38))
+    drop-shadow(0 0 24px rgba(255, 45, 77, 0.72))
+    drop-shadow(0 0 82px rgba(180, 92, 255, 0.42));
+  animation: centralMarkBreach 6s steps(1, end) forwards;
 }
 
-.loader-core__mark::before {
-  content: "CK";
-  inset: 0;
-  color: rgba(180, 92, 255, 0.54);
-  transform: translateX(-8px);
-  clip-path: inset(0 0 58% 0);
+.loader-core__logo {
+  display: block;
+  grid-area: 1 / 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+}
+
+.loader-core__logo--main {
+  opacity: 0.96;
+  filter:
+    saturate(1.16)
+    contrast(1.08)
+    brightness(0.96);
+}
+
+.loader-core__logo--ghost {
   opacity: 0;
-  animation: markGlitchLayer 4.6s steps(1, end) forwards;
+  mix-blend-mode: screen;
+  filter:
+    hue-rotate(238deg)
+    saturate(1.65)
+    brightness(1.25)
+    blur(0.4px);
+  clip-path: inset(0 0 58% 0);
+  animation: markGlitchLayer 6s steps(1, end) forwards;
 }
 
 .loader-core__mark::after {
@@ -2859,7 +2871,7 @@
     0 0 34px rgba(180, 92, 255, 0.44);
   opacity: 0;
   transform: translate(-50%, -50%);
-  animation: markScanline 4.6s ease forwards;
+  animation: markScanline 6s ease forwards;
 }
 
 .loader-core h1 {
@@ -2874,7 +2886,7 @@
   text-shadow:
     0 0 22px rgba(255, 45, 77, 0.58),
     0 0 42px rgba(180, 92, 255, 0.34);
-  animation: centralTitleReveal 4.6s ease forwards;
+  animation: centralTitleReveal 6s ease forwards;
 }
 
 .loader-core p {
@@ -2886,7 +2898,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   opacity: 0;
-  animation: centralTextReveal 4.6s ease 0.18s forwards;
+  animation: centralTextReveal 6s ease 0.18s forwards;
 }
 
 .loader-core__tags {
@@ -2896,7 +2908,7 @@
   gap: 8px;
   margin-top: 22px;
   opacity: 0;
-  animation: tagReveal 4.6s ease forwards;
+  animation: tagReveal 6s ease forwards;
 }
 
 .loader-core__tags span {
@@ -2916,7 +2928,7 @@
   background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
   opacity: 0;
-  animation: tagReveal 4.6s ease 0.14s forwards;
+  animation: tagReveal 6s ease 0.14s forwards;
 }
 
 .loader-core__progress i {
@@ -2925,7 +2937,7 @@
   background: linear-gradient(90deg, #ff2d4d, #b45cff, #d2f7ff);
   box-shadow: 0 0 18px rgba(255, 45, 77, 0.68);
   transform-origin: left center;
-  animation: coreProgress 4.6s cubic-bezier(0.2, 0.76, 0.16, 1) forwards;
+  animation: coreProgress 6s cubic-bezier(0.2, 0.76, 0.16, 1) forwards;
 }
 
 .ck-loader--cosmic .ck-loader__final-flash {
@@ -2949,7 +2961,7 @@
     radial-gradient(circle at center, rgba(255, 45, 77, 0.28), transparent 30rem),
     rgba(0, 0, 0, 0.12);
   opacity: 0;
-  animation: cosmicFinalFlash 4.6s steps(1, end) forwards;
+  animation: cosmicFinalFlash 6s steps(1, end) forwards;
 }
 
 @keyframes cosmicGalaxyEnter {
