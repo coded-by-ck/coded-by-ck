@@ -237,7 +237,7 @@ function Loader() {
         </div>
       </main>
 
-      <span className="ck-loader__final-flash" aria-hidden="true">CK SYSTEM OVERRIDE</span>
+      <span className="ck-loader__final-flash" aria-hidden="true">ACCESS GRANTED BY CK</span>
       <span className="ck-loader__sr">Coded by CK interface online</span>
     </div>
   )

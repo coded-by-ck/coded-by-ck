@@ -1277,8 +1277,8 @@
 }
 
 @keyframes ckAmbientGrid {
-  0% { background-position: 0 0, 0 0, 0 0, 0 0; opacity: 0; }
-  12% { opacity: 0.72; }
+  0% { background-position: 0 0, 0 0, 0 0, 0 0; opacity: 0.18; }
+  8% { opacity: 0.72; }
   100% { background-position: 0 38px, 38px 0, 92px 126px, -116px 96px; opacity: 0.52; }
 }
 
@@ -1290,9 +1290,10 @@
 @keyframes ckSignalNoise {
   0%,
   5%,
+  18%,
   88%,
   94% {
-    opacity: 0.52;
+    opacity: 0.44;
     transform: translateX(-1px);
   }
   8%,
@@ -2325,17 +2326,26 @@
   background:
     radial-gradient(circle at 12% 24%, rgba(210, 247, 255, 0.1) 0 1px, transparent 2px),
     radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.12) 0 1px, transparent 2px),
-    radial-gradient(circle at 50% 48%, rgba(255, 45, 77, 0.18), transparent 20rem),
-    radial-gradient(circle at 62% 38%, rgba(180, 92, 255, 0.2), transparent 28rem),
-    radial-gradient(circle at 28% 72%, rgba(20, 106, 255, 0.12), transparent 28rem),
+    radial-gradient(circle at 4% 82%, rgba(180, 92, 255, 0.12), transparent 18rem),
+    radial-gradient(circle at 94% 18%, rgba(255, 45, 77, 0.1), transparent 20rem),
+    radial-gradient(circle at 50% 48%, rgba(255, 45, 77, 0.15), transparent 22rem),
+    radial-gradient(circle at 62% 38%, rgba(180, 92, 255, 0.17), transparent 30rem),
+    radial-gradient(circle at 28% 72%, rgba(20, 106, 255, 0.12), transparent 30rem),
     linear-gradient(180deg, #000 0%, #050008 46%, #000 100%);
-  background-size: 180px 160px, 220px 190px, auto, auto, auto, auto;
+  background-size: 180px 160px, 220px 190px, auto, auto, auto, auto, auto, auto;
 }
 
 .ck-loader--cosmic::before {
   z-index: 4;
-  opacity: 0.42;
-  mask-image: radial-gradient(circle at center, transparent 0 18%, #000 34%, transparent 90%);
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(210, 247, 255, 0.14) 0 1px, transparent 2px),
+    radial-gradient(circle at 92% 72%, rgba(255, 255, 255, 0.12) 0 1px, transparent 2px),
+    linear-gradient(rgba(255, 45, 77, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 92, 255, 0.024) 1px, transparent 1px),
+    radial-gradient(ellipse at center, transparent 0 42%, rgba(0, 0, 0, 0.32) 78%, rgba(0, 0, 0, 0.74) 100%);
+  background-size: 240px 210px, 270px 230px, 56px 56px, 56px 56px, auto;
+  mask-image: radial-gradient(circle at center, transparent 0 18%, #000 34%, #000 86%, transparent 100%);
 }
 
 .ck-loader--cosmic::after {
@@ -2403,8 +2413,8 @@
   inset: -20% 0;
   z-index: 20;
   background:
-    linear-gradient(180deg, transparent 0 36%, rgba(255, 45, 77, 0.12) 38%, rgba(255, 255, 255, 0.08) 39%, transparent 42%),
-    repeating-linear-gradient(180deg, transparent 0 22px, rgba(255, 255, 255, 0.026) 23px, transparent 24px);
+    linear-gradient(180deg, transparent 0 37%, rgba(255, 45, 77, 0.075) 39%, rgba(255, 255, 255, 0.055) 40%, transparent 43%),
+    repeating-linear-gradient(180deg, transparent 0 24px, rgba(255, 255, 255, 0.02) 25px, transparent 26px);
   mix-blend-mode: screen;
   opacity: 0;
   animation: cosmicScan 6s ease forwards;
@@ -2470,10 +2480,10 @@
 
 .cosmic-nebula--violet {
   background:
-    radial-gradient(ellipse at 56% 46%, rgba(180, 92, 255, 0.36), transparent 34%),
+    radial-gradient(ellipse at 56% 46%, rgba(180, 92, 255, 0.28), transparent 36%),
     radial-gradient(ellipse at 42% 58%, rgba(210, 247, 255, 0.13), transparent 28%);
-  filter: blur(13px);
-  opacity: 0.68;
+  filter: blur(15px);
+  opacity: 0.58;
   transform: translateZ(-120px) scaleX(1.34) scaleY(0.56) rotateZ(16deg);
   animation: cosmicNebulaViolet 8s ease-in-out infinite alternate;
 }
@@ -2818,15 +2828,15 @@
 .loader-core__mark {
   display: grid;
   place-items: center;
-  width: clamp(16rem, 42vw, 32rem);
-  margin: 2px 0 12px;
+  width: clamp(14.7rem, 38.5vw, 29.5rem);
+  margin: 0 0 10px;
   aspect-ratio: 1.58;
   opacity: 0;
   filter:
-    drop-shadow(-7px 0 0 rgba(180, 92, 255, 0.34))
-    drop-shadow(7px 0 0 rgba(255, 45, 77, 0.38))
-    drop-shadow(0 0 24px rgba(255, 45, 77, 0.72))
-    drop-shadow(0 0 82px rgba(180, 92, 255, 0.42));
+    drop-shadow(-5px 0 0 rgba(180, 92, 255, 0.24))
+    drop-shadow(5px 0 0 rgba(255, 45, 77, 0.28))
+    drop-shadow(0 0 18px rgba(255, 45, 77, 0.56))
+    drop-shadow(0 0 58px rgba(180, 92, 255, 0.32));
   animation: centralMarkBreach 6s steps(1, end) forwards;
 }
 
@@ -2840,11 +2850,11 @@
 }
 
 .loader-core__logo--main {
-  opacity: 0.96;
+  opacity: 0.94;
   filter:
-    saturate(1.16)
-    contrast(1.08)
-    brightness(0.96);
+    saturate(1.12)
+    contrast(1.06)
+    brightness(0.94);
 }
 
 .loader-core__logo--ghost {
@@ -2852,8 +2862,8 @@
   mix-blend-mode: screen;
   filter:
     hue-rotate(238deg)
-    saturate(1.65)
-    brightness(1.25)
+    saturate(1.45)
+    brightness(1.12)
     blur(0.4px);
   clip-path: inset(0 0 58% 0);
   animation: markGlitchLayer 6s steps(1, end) forwards;
@@ -2863,7 +2873,7 @@
   content: "";
   left: 50%;
   top: 50%;
-  width: min(44vw, 420px);
+  width: min(38vw, 360px);
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.92), rgba(255, 45, 77, 0.74), transparent);
   box-shadow:
@@ -2876,16 +2886,16 @@
 
 .loader-core h1 {
   margin: 0;
-  color: rgba(255, 250, 252, 0.96);
+  color: rgba(255, 238, 243, 0.84);
   font-family: var(--font-tech);
-  font-size: clamp(1.18rem, 4vw, 3.15rem);
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: clamp(1rem, 3.25vw, 2.55rem);
+  font-weight: 800;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   opacity: 0;
   text-shadow:
-    0 0 22px rgba(255, 45, 77, 0.58),
-    0 0 42px rgba(180, 92, 255, 0.34);
+    0 0 14px rgba(255, 45, 77, 0.42),
+    0 0 30px rgba(180, 92, 255, 0.24);
   animation: centralTitleReveal 6s ease forwards;
 }
 
@@ -2952,14 +2962,14 @@
   text-align: center;
   text-transform: uppercase;
   text-shadow:
-    -3px 0 0 rgba(180, 92, 255, 0.48),
-    3px 0 0 rgba(255, 45, 77, 0.58),
-    0 0 24px rgba(255, 45, 77, 0.96),
-    0 0 70px rgba(180, 92, 255, 0.72);
+    -2px 0 0 rgba(180, 92, 255, 0.42),
+    2px 0 0 rgba(255, 45, 77, 0.48),
+    0 0 20px rgba(255, 45, 77, 0.84),
+    0 0 56px rgba(180, 92, 255, 0.58);
   background:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.14), transparent 9rem),
-    radial-gradient(circle at center, rgba(255, 45, 77, 0.28), transparent 30rem),
-    rgba(0, 0, 0, 0.12);
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 9rem),
+    radial-gradient(circle at center, rgba(255, 45, 77, 0.22), transparent 30rem),
+    rgba(0, 0, 0, 0.1);
   opacity: 0;
   animation: cosmicFinalFlash 6s steps(1, end) forwards;
 }
@@ -3062,12 +3072,11 @@
 }
 
 @keyframes constellationReveal {
-  0%,
-  24% {
-    opacity: 0;
+  0% {
+    opacity: 0.16;
     transform: scale(0.72);
   }
-  42%,
+  24%,
   82% {
     opacity: 0.62;
     transform: scale(1);
@@ -3085,10 +3094,10 @@
 
 @keyframes cosmicStarTwinkle {
   0% {
-    opacity: 0;
+    opacity: 0.16;
     transform: translate(-50%, -50%) rotate(var(--angle)) translateX(calc(var(--radius) * 1.04)) translateZ(calc(var(--z) - 30px)) scale(0.62);
   }
-  28%,
+  18%,
   82% {
     opacity: 0.95;
   }
@@ -3163,7 +3172,7 @@
 
 @keyframes codeGravityPull {
   0% {
-    opacity: 0.08;
+    opacity: 0.16;
     transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--radius)) translateY(-48px) rotate(-8deg) scale(0.78);
   }
   24% {
@@ -3181,12 +3190,11 @@
 }
 
 @keyframes hudReveal {
-  0%,
-  18% {
-    opacity: 0;
+  0% {
+    opacity: 0.18;
     transform: translateY(18px);
   }
-  36%,
+  18%,
   84% {
     opacity: 1;
     transform: translateY(0);
@@ -3198,12 +3206,11 @@
 }
 
 @keyframes terminalLineReveal {
-  0%,
-  22% {
-    opacity: 0;
+  0% {
+    opacity: 0.16;
     transform: translateX(-12px);
   }
-  36%,
+  20%,
   84% {
     opacity: 1;
     transform: translateX(0);
