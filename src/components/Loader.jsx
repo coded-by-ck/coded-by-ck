@@ -3,10 +3,15 @@ import logoCabecalho from '../assets/logos/logo-cabecalho.png'
 
 const systemLogs = [
   'ck@root:~$ breach --cosmic-shell',
+  'CK_PAYLOAD_INJECTED :: ok',
+  'ROOT_ACCESS_GRANTED',
+  'BYPASS_FIREWALL --silent',
   'trace.node[042] :: masked',
   'hash: 9C11_A7F9_FF03',
   'inject(CK_PAYLOAD, universe.memory)',
   'firewall.status = bypassed',
+  'DECRYPTING_SOURCE... 84%',
+  'ACCESS_LAYER_OPEN',
   'interface://coded-by-ck/online',
   'root_access :: granted',
   'visual_core.override = true',
@@ -15,17 +20,23 @@ const systemLogs = [
 const scanTags = ['TRACE', 'DECRYPT', 'INJECT', 'OVERRIDE', 'ROOT', 'CK']
 
 const dataStreams = [
+  'CK_PAYLOAD_INJECTED',
   'SIGNAL_INTERCEPTED',
   'TARGET_LOCKED',
   'BREACH_ACTIVE',
+  'BYPASS_FIREWALL',
   '0xCK13',
+  '0xCK_PROTOCOL',
   'ROOT_ACCESS',
   'A7F9',
   'PAYLOAD_ARMED',
   'SYSTEM_OVERRIDE',
+  'ROOT_ACCESS_GRANTED',
   'FF03',
   'ACCESS_GRANTED',
+  'DECRYPTING_SOURCE',
   'cipher.rotate()',
+  'ACCESS_LAYER_OPEN',
   'BREACH_PROTOCOL',
   'CK_INTERFACE',
   'CK_INTERFACE_ONLINE',
@@ -115,7 +126,7 @@ const constellations = Array.from({ length: 34 }, (_, index) => ({
 }))
 
 const codeFragments = Array.from({ length: 24 }, (_, index) => {
-  const labels = ['CK_PAYLOAD', 'ROOT_ACCESS', 'SYSTEM_OVERRIDE', 'ACCESS_GRANTED', '0xCK_PROTOCOL', 'BREACH_ACTIVE', 'sha256:8f13', 'TRACE_MASKED']
+  const labels = ['CK_PAYLOAD_INJECTED', 'ROOT_ACCESS_GRANTED', 'SYSTEM_OVERRIDE', 'SIGNAL_INTERCEPTED', 'BYPASS_FIREWALL', '0xCK_PROTOCOL', 'DECRYPTING_SOURCE', 'ACCESS_LAYER_OPEN']
   const angle = (index * 37 + 12) % 360
   const mid = angle + 52
   const end = angle + 128
@@ -130,6 +141,21 @@ const codeFragments = Array.from({ length: 24 }, (_, index) => {
       '--radius': `${250 + ((index * 31) % 390)}px`,
       '--radius-mid': `${140 + ((index * 17) % 170)}px`,
       '--delay': `${0.18 + (index % 14) * 0.09}s`,
+    },
+  }
+})
+
+const ambientCodeLogs = Array.from({ length: 22 }, (_, index) => {
+  const labels = ['CK_PAYLOAD_INJECTED', 'ROOT_ACCESS_GRANTED', 'SYSTEM_OVERRIDE', 'SIGNAL_INTERCEPTED', 'BYPASS_FIREWALL', '0xCK_PROTOCOL', 'DECRYPTING_SOURCE', 'ACCESS_LAYER_OPEN']
+
+  return {
+    id: `ambient-code-${index}`,
+    text: labels[index % labels.length],
+    style: {
+      '--x': `${index % 2 === 0 ? 4 + ((index * 9) % 30) : 66 + ((index * 7) % 28)}%`,
+      '--y': `${8 + ((index * 13) % 78)}%`,
+      '--tilt': `${index % 2 === 0 ? -8 + (index % 5) * 2 : 4 - (index % 4) * 2}deg`,
+      '--delay': `${0.12 + (index % 11) * 0.12}s`,
     },
   }
 })
@@ -189,6 +215,14 @@ function Loader() {
         {codeFragments.map((fragment) => (
           <span className="code-gravity__fragment" key={fragment.id} style={fragment.style}>
             {fragment.text}
+          </span>
+        ))}
+      </div>
+
+      <div className="code-field" aria-hidden="true">
+        {ambientCodeLogs.map((log) => (
+          <span className="code-field__line" key={log.id} style={log.style}>
+            {log.text}
           </span>
         ))}
       </div>
