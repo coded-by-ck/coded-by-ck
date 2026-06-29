@@ -1,51 +1,63 @@
-import deviceShowcaseImage from '../assets/devices/device-showcase.png'
+import auauPhoneShowcase from '../assets/devices/auau-phone-showcase.png'
+import invictusNotebookMockup from '../assets/devices/notebook.png'
+import invictusPhoneShowcase from '../assets/devices/invictus-phone-showcase.png'
+import ladoPhoneShowcase from '../assets/devices/lado-phone-showcase.png'
 import { projects } from '../data/projects'
 
-function DeviceShowcase({ project }) {
+const notebookPhoneShowcases = {
+  'Invictus Barber': {
+    variant: 'invictus',
+    notebookMockup: invictusNotebookMockup,
+    phoneShowcase: invictusPhoneShowcase,
+    phoneAlt: 'Invictus Barber mobile showcase',
+  },
+  'Lado a Lado': {
+    variant: 'lado',
+    notebookMockup: invictusNotebookMockup,
+    phoneShowcase: ladoPhoneShowcase,
+    phoneAlt: 'Lado a Lado mobile showcase',
+  },
+  'Au-Au / Dog do AuAu': {
+    variant: 'auau',
+    notebookMockup: invictusNotebookMockup,
+    phoneShowcase: auauPhoneShowcase,
+    phoneAlt: 'Dog do AuAu mobile showcase',
+  },
+}
+
+function NotebookPhoneCaseShowcase({ project, showcase }) {
+  const variantClass = `case-device-showcase--${showcase.variant}`
+
   return (
-    <div className="unified-device-showcase" aria-label={`Showcase responsivo do projeto ${project.title}`}>
-      <span className="unified-device-showcase__glow" aria-hidden="true" />
-      <span className="unified-device-showcase__floor" aria-hidden="true" />
+    <div
+      className={`case-device-showcase ${variantClass} invictus-device-showcase`}
+      aria-label={`Showcase responsivo do projeto ${project.title}`}
+    >
+      <span className="case-device-showcase__glow invictus-device-showcase__glow" aria-hidden="true" />
+      <span className="case-device-showcase__floor invictus-device-showcase__floor" aria-hidden="true" />
 
-      <div className="unified-device-showcase__stage">
-        <div
-          className={`unified-device-showcase__screen unified-device-showcase__screen--laptop${
-            project.devices.laptop.mode ? ` unified-device-showcase__screen--${project.devices.laptop.mode}` : ''
-          }`}
-          style={{ '--screen-backdrop': `url(${project.devices.laptop.image})` }}
-        >
-          <img src={project.devices.laptop.image} alt={project.devices.laptop.alt} />
+      <div className="case-device-showcase__stage invictus-showcase-stage">
+        <div className="case-device-showcase__laptop invictus-laptop-wrap">
+          <img className="case-device-showcase__laptop-mockup invictus-laptop-mockup" src={showcase.notebookMockup} alt="" aria-hidden="true" />
+          <div className="case-device-showcase__laptop-screen invictus-laptop-screen">
+            <img src={project.devices.laptop.image} alt={project.devices.laptop.alt} />
+          </div>
         </div>
 
-        <div
-          className={`unified-device-showcase__screen unified-device-showcase__screen--tablet${
-            project.devices.tablet.mode ? ` unified-device-showcase__screen--${project.devices.tablet.mode}` : ''
-          }`}
-          style={{ '--screen-backdrop': `url(${project.devices.tablet.image})` }}
-        >
-          <img src={project.devices.tablet.image} alt={project.devices.tablet.alt} />
+        <div className="case-device-showcase__phone invictus-phone-wrap">
+          <img
+            className="case-device-showcase__phone-image invictus-phone-showcase"
+            src={showcase.phoneShowcase}
+            alt={showcase.phoneAlt}
+          />
         </div>
-
-        <div
-          className="unified-device-showcase__screen unified-device-showcase__screen--phone"
-          style={{ '--screen-backdrop': `url(${project.devices.phone.image})` }}
-        >
-          <img src={project.devices.phone.image} alt={project.devices.phone.alt} />
-        </div>
-
-        <img
-          className="unified-device-showcase__base"
-          src={deviceShowcaseImage}
-          alt=""
-          aria-hidden="true"
-        />
       </div>
     </div>
   )
 }
 
 function ProjectShowcase({ index, project }) {
-  const isReversed = index === 1
+  const isReversed = index % 2 === 1
   const isFeatured = index === 0
 
   const getProjectTheme = (title) => {
@@ -59,11 +71,13 @@ function ProjectShowcase({ index, project }) {
   const getExternalLinkProps = (href) =>
     href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {}
 
+  const notebookPhoneShowcase = notebookPhoneShowcases[project.title]
+
   return (
     <article
       className={`project-case${isReversed ? ' project-case--reverse' : ''}${
         isFeatured ? ' project-case--featured' : ''
-      } project-case--${getProjectTheme(project.title)}`}
+      } project-case--${isReversed ? 'reverse' : 'normal'} project-case--${getProjectTheme(project.title)}`}
     >
       <span className="project-case__divider" aria-hidden="true" />
 
@@ -106,7 +120,7 @@ function ProjectShowcase({ index, project }) {
         </div>
       </div>
 
-      <DeviceShowcase project={project} />
+      <NotebookPhoneCaseShowcase project={project} showcase={notebookPhoneShowcase} />
     </article>
   )
 }

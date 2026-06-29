@@ -2,6 +2,7 @@ import auauDesktopImage from '../assets/projects/auau-desktop.png'
 import auauMobileImage from '../assets/projects/auau-mobile.png'
 import invictusDesktopImage from '../assets/invictus.png'
 import invictusMobileImage from '../assets/projects/invictus-mobile.png'
+import ladoALadoDesktopImage from '../assets/projects/lado-a-lado.png'
 import ladoALadoMobileImage from '../assets/projects/lado-a-lado-mobile.png'
 
 export const projects = [
@@ -16,9 +17,9 @@ export const projects = [
       'Design premium com identidade forte',
     ],
     devices: {
-      laptop: { image: invictusDesktopImage, mode: 'contain', alt: 'Print desktop do projeto Invictus no laptop' },
+      laptop: { image: invictusDesktopImage, mode: 'fill', alt: 'Print desktop do projeto Invictus no laptop' },
       tablet: { image: invictusDesktopImage, mode: 'contain', alt: 'Print desktop do projeto Invictus no tablet' },
-      phone: { image: invictusMobileImage, mode: 'contain', alt: 'Print mobile do projeto Invictus no celular' },
+      phone: { image: invictusMobileImage, mode: 'fill', alt: 'Print mobile do projeto Invictus no celular' },
     },
     actions: [
       { label: 'Ver projeto', href: '#' },
@@ -36,7 +37,7 @@ export const projects = [
       'Layout responsivo e envolvente',
     ],
     devices: {
-      laptop: { image: ladoALadoMobileImage, mode: 'mobile-fallback', alt: 'Print mobile do projeto Lado a Lado no laptop' },
+      laptop: { image: ladoALadoDesktopImage, alt: 'Print desktop do projeto Lado a Lado no laptop' },
       tablet: { image: ladoALadoMobileImage, mode: 'mobile-fallback', alt: 'Print mobile do projeto Lado a Lado no tablet' },
       phone: { image: ladoALadoMobileImage, alt: 'Print mobile do projeto Lado a Lado no celular' },
     },

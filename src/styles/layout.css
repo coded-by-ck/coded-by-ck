@@ -6592,15 +6592,15 @@ body::after {
 }
 
 .project-case--lado {
-  --case-primary: #e0b93f;
-  --case-secondary: #7a4a14;
-  --case-glow: rgba(224, 185, 63, 0.26);
+  --case-primary: #ffd43b;
+  --case-secondary: #f59e0b;
+  --case-glow: rgba(255, 212, 59, 0.34);
 }
 
 .project-case--auau {
   --case-primary: #ff2434;
   --case-secondary: #ffd226;
-  --case-glow: rgba(255, 36, 52, 0.32);
+  --case-glow: rgba(255, 36, 52, 0.36);
 }
 
 .project-case::before,
@@ -6649,6 +6649,10 @@ body::after {
 }
 
 .project-case--reverse .device-showcase {
+  order: 1;
+}
+
+.project-case--reverse .case-device-showcase {
   order: 1;
 }
 
@@ -7092,7 +7096,8 @@ body::after {
   }
 
   .project-case--reverse .project-case__content,
-  .project-case--reverse .device-showcase {
+  .project-case--reverse .device-showcase,
+  .project-case--reverse .case-device-showcase {
     order: initial;
   }
 
@@ -8149,57 +8154,53 @@ body::after {
 .project-case--invictus .unified-device-showcase__screen {
   background:
     var(--screen-backdrop) center / contain no-repeat,
-    radial-gradient(circle at 50% 50%, rgba(213, 171, 72, 0.1), transparent 62%),
     #030303;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 232, 180, 0.12),
+    0 0 18px rgba(213, 171, 72, 0.14);
 }
 
-.project-case--invictus .unified-device-showcase__screen--contain img {
+.project-case--invictus .unified-device-showcase__screen img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
   background: #030303;
-  filter: brightness(1.08) contrast(1.12) saturate(1.12);
+  filter: none;
 }
 
-.project-case--invictus .unified-device-showcase__screen--contain::before {
-  background:
-    var(--screen-backdrop) center / contain no-repeat,
-    #030303;
-  filter: blur(14px) saturate(1.1) brightness(0.48);
-}
-
-.project-case--invictus .unified-device-showcase__screen--phone.unified-device-showcase__screen--contain img {
-  object-fit: contain;
-  padding: 0;
-  border-radius: 12px;
+.project-case--invictus .unified-device-showcase__screen::before {
+  display: none;
 }
 
 .project-case--invictus .unified-device-showcase {
-  min-height: clamp(500px, 50vw, 710px);
+  min-height: clamp(430px, 43vw, 620px);
+  overflow: visible;
 }
 
 .project-case--invictus .unified-device-showcase__stage {
-  width: min(124%, 1090px);
-  transform: translateX(2%) rotateY(-4deg) rotateX(1.2deg) scale(1.08);
+  width: min(100%, 880px);
+  transform: translateX(2%) rotateY(-2deg) rotateX(0.8deg);
   filter:
-    drop-shadow(0 42px 56px rgba(0, 0, 0, 0.74))
-    drop-shadow(0 0 58px rgba(213, 171, 72, 0.28));
+    drop-shadow(0 34px 46px rgba(0, 0, 0, 0.68))
+    drop-shadow(0 0 44px rgba(213, 171, 72, 0.24));
 }
 
 .project-case--invictus .unified-device-showcase__glow {
-  inset: 0 -12% -2%;
+  inset: 4% -6% 2%;
   background:
-    radial-gradient(circle at 48% 48%, rgba(213, 171, 72, 0.48), transparent 35%),
-    radial-gradient(circle at 72% 61%, rgba(255, 219, 112, 0.26), transparent 46%);
+    radial-gradient(circle at 50% 48%, rgba(213, 171, 72, 0.38), transparent 34%),
+    radial-gradient(circle at 73% 62%, rgba(255, 219, 112, 0.22), transparent 46%);
 }
 
 .project-case--invictus .unified-device-showcase__floor {
-  bottom: 0;
+  right: 4%;
+  bottom: 2%;
+  left: 4%;
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(255, 240, 186, 0.18), transparent 18%),
-    radial-gradient(ellipse at 50% 50%, rgba(213, 171, 72, 0.3), transparent 55%);
-  opacity: 0.92;
+    radial-gradient(ellipse at 50% 50%, rgba(255, 240, 186, 0.16), transparent 18%),
+    radial-gradient(ellipse at 50% 50%, rgba(213, 171, 72, 0.26), transparent 56%);
+  opacity: 0.82;
 }
 
 .project-case--invictus .unified-device-showcase__screen--contain {
@@ -8209,39 +8210,28 @@ body::after {
     linear-gradient(180deg, #090805, #030303);
 }
 
-.project-case--invictus .unified-device-showcase__screen--laptop.unified-device-showcase__screen--contain img,
-.project-case--invictus .unified-device-showcase__screen--tablet.unified-device-showcase__screen--contain img,
-.project-case--invictus .unified-device-showcase__screen--phone.unified-device-showcase__screen--contain img {
+.project-case--invictus .unified-device-showcase__screen--tablet.unified-device-showcase__screen--contain img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
   background:
-    radial-gradient(circle at 50% 48%, rgba(213, 171, 72, 0.12), transparent 62%),
+    radial-gradient(circle at 50% 48%, rgba(213, 171, 72, 0.18), transparent 62%),
     #030303;
-  filter: brightness(1.18) contrast(1.15) saturate(1.12);
+  filter: none;
 }
 
-.project-case--invictus .unified-device-showcase__screen--tablet.unified-device-showcase__screen--contain img {
-  padding: 2%;
+.project-case--invictus .unified-device-showcase__screen--tablet.unified-device-showcase__screen--contain::before {
+  display: none;
 }
 
-.project-case--invictus .unified-device-showcase__screen--phone.unified-device-showcase__screen--contain img {
-  filter: brightness(1.15) contrast(1.12) saturate(1.1);
-}
-
-.project-case--invictus .unified-device-showcase__screen--contain::before {
-  filter: blur(16px) saturate(1.16) brightness(0.62);
-  opacity: 0.9;
-}
-
-.project-case--invictus .unified-device-showcase__screen--contain::after {
-  opacity: 0.18;
+.project-case--invictus .unified-device-showcase__screen::after {
+  display: none;
 }
 
 @media (max-width: 1100px) {
   .project-case--invictus .unified-device-showcase__stage {
-    width: min(112%, 940px);
+    width: min(100%, 880px);
     transform: none;
   }
 
@@ -8265,10 +8255,216 @@ body::after {
   }
 
   .project-case--invictus .unified-device-showcase {
-    min-height: 390px;
+    min-height: 340px;
   }
 
   .project-case--invictus .unified-device-showcase__stage {
-    width: min(120%, 720px);
+    width: min(108%, 680px);
   }
+}
+
+/* Approved notebook + phone case showcase pattern */
+.case-device-showcase,
+.project-case--invictus .invictus-device-showcase {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-height: clamp(420px, 43vw, 620px);
+  overflow: visible;
+}
+
+.case-device-showcase__glow,
+.case-device-showcase__floor,
+.invictus-device-showcase__glow,
+.invictus-device-showcase__floor {
+  position: absolute;
+  pointer-events: none;
+}
+
+.case-device-showcase__glow,
+.invictus-device-showcase__glow {
+  inset: 6% -5% 4%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(213, 171, 72, 0.34), transparent 36%),
+    radial-gradient(circle at 76% 64%, rgba(255, 225, 132, 0.2), transparent 45%);
+  filter: blur(30px);
+  opacity: 0.95;
+}
+
+.case-device-showcase__floor,
+.invictus-device-showcase__floor {
+  right: 8%;
+  bottom: 2%;
+  left: 8%;
+  height: 15%;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 240, 186, 0.16), transparent 18%),
+    radial-gradient(ellipse at 50% 50%, rgba(213, 171, 72, 0.24), transparent 58%);
+  filter: blur(12px);
+  opacity: 0.86;
+  transform: perspective(620px) rotateX(72deg);
+}
+
+.case-device-showcase__stage,
+.invictus-showcase-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(106%, 820px);
+  min-height: clamp(500px, 44vw, 580px);
+  margin-left: auto;
+  transform: translateX(3%) rotateY(-1.4deg) rotateX(0.45deg);
+  filter:
+    drop-shadow(0 34px 48px rgba(0, 0, 0, 0.72))
+    drop-shadow(0 0 42px rgba(213, 171, 72, 0.22));
+}
+
+.case-device-showcase__laptop,
+.invictus-laptop-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(96%, 760px);
+}
+
+.case-device-showcase__phone,
+.invictus-phone-wrap {
+  position: absolute;
+  right: -2.5%;
+  bottom: 0;
+  z-index: 5;
+  width: clamp(385px, 25.5vw, 470px);
+  max-width: none;
+  min-width: 385px;
+  pointer-events: none;
+}
+
+.case-device-showcase__laptop-mockup,
+.case-device-showcase__phone-image,
+.invictus-laptop-mockup,
+.invictus-phone-showcase {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  filter: none;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.case-device-showcase__laptop-screen,
+.invictus-laptop-screen {
+  position: absolute;
+  z-index: 2;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(213, 171, 72, 0.12), transparent 62%),
+    #050505;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 232, 180, 0.08),
+    0 0 20px rgba(213, 171, 72, 0.1);
+}
+
+.case-device-showcase__laptop-screen img,
+.invictus-laptop-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+
+.case-device-showcase__laptop-screen,
+.invictus-laptop-screen {
+  top: 15.02%;
+  left: 14.3%;
+  width: 71.75%;
+  height: 50.35%;
+  border-radius: 4px;
+}
+
+.case-device-showcase--lado .case-device-showcase__glow {
+  background:
+    radial-gradient(circle at 50% 46%, rgba(236, 191, 45, 0.36), transparent 36%),
+    radial-gradient(circle at 76% 64%, rgba(255, 232, 90, 0.2), transparent 45%);
+}
+
+.case-device-showcase--auau .case-device-showcase__glow {
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255, 33, 45, 0.34), transparent 36%),
+    radial-gradient(circle at 76% 64%, rgba(255, 211, 35, 0.22), transparent 45%);
+}
+
+.case-device-showcase--auau .case-device-showcase__floor {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 210, 48, 0.16), transparent 18%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 31, 48, 0.24), transparent 58%);
+}
+
+@media (max-width: 1100px) {
+  .case-device-showcase__stage,
+  .invictus-showcase-stage {
+    width: min(104%, 740px);
+    min-height: clamp(430px, 52vw, 540px);
+    transform: none;
+  }
+
+  .case-device-showcase__laptop,
+  .invictus-laptop-wrap {
+    width: min(94%, 700px);
+  }
+
+  .case-device-showcase__phone,
+  .invictus-phone-wrap {
+    right: -2.5%;
+    bottom: 0;
+    width: clamp(335px, 33vw, 430px);
+    max-width: none;
+    min-width: 335px;
+  }
+}
+
+@media (max-width: 700px) {
+  .case-device-showcase,
+  .project-case--invictus .invictus-device-showcase {
+    min-height: 360px;
+  }
+
+  .case-device-showcase__stage,
+  .invictus-showcase-stage {
+    width: min(112%, 620px);
+    min-height: 350px;
+    transform: none;
+  }
+
+  .case-device-showcase__laptop,
+  .invictus-laptop-wrap {
+    width: 95%;
+  }
+
+  .case-device-showcase__phone,
+  .invictus-phone-wrap {
+    right: -2.5%;
+    bottom: 6%;
+    width: clamp(260px, 64vw, 355px);
+    max-width: none;
+    min-width: 260px;
+  }
+}
+
+.projects-showcase-section .project-case .case-device-showcase__stage > .case-device-showcase__phone {
+  position: absolute;
+  right: -3.5% !important;
+  bottom: -1% !important;
+  transform: translate(40px, 50px);
+  z-index: 5;
 }
