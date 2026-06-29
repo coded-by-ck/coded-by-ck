@@ -1,127 +1,152 @@
+import deviceShowcaseImage from '../assets/devices/device-showcase.png'
 import { projects } from '../data/projects'
 
-function Projects() {
+function DeviceShowcase({ project }) {
+  return (
+    <div className="unified-device-showcase" aria-label={`Showcase responsivo do projeto ${project.title}`}>
+      <span className="unified-device-showcase__glow" aria-hidden="true" />
+      <span className="unified-device-showcase__floor" aria-hidden="true" />
+
+      <div className="unified-device-showcase__stage">
+        <div
+          className={`unified-device-showcase__screen unified-device-showcase__screen--laptop${
+            project.devices.laptop.mode ? ` unified-device-showcase__screen--${project.devices.laptop.mode}` : ''
+          }`}
+          style={{ '--screen-backdrop': `url(${project.devices.laptop.image})` }}
+        >
+          <img src={project.devices.laptop.image} alt={project.devices.laptop.alt} />
+        </div>
+
+        <div
+          className={`unified-device-showcase__screen unified-device-showcase__screen--tablet${
+            project.devices.tablet.mode ? ` unified-device-showcase__screen--${project.devices.tablet.mode}` : ''
+          }`}
+          style={{ '--screen-backdrop': `url(${project.devices.tablet.image})` }}
+        >
+          <img src={project.devices.tablet.image} alt={project.devices.tablet.alt} />
+        </div>
+
+        <div
+          className="unified-device-showcase__screen unified-device-showcase__screen--phone"
+          style={{ '--screen-backdrop': `url(${project.devices.phone.image})` }}
+        >
+          <img src={project.devices.phone.image} alt={project.devices.phone.alt} />
+        </div>
+
+        <img
+          className="unified-device-showcase__base"
+          src={deviceShowcaseImage}
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+  )
+}
+
+function ProjectShowcase({ index, project }) {
+  const isReversed = index === 1
+  const isFeatured = index === 0
+
+  const getProjectTheme = (title) => {
+    if (title.includes('Invictus')) return 'invictus'
+    if (title.includes('Lado a Lado')) return 'lado'
+    if (title.includes('Au-Au')) return 'auau'
+
+    return 'default'
+  }
+
   const getExternalLinkProps = (href) =>
     href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {}
 
   return (
-    <section className="section content-section" id="projetos">
-      <div className="container">
-        <div className="section-heading">
-          <p className="section-kicker">Projetos</p>
-          <h2>Projetos com presença e função.</h2>
+    <article
+      className={`project-case${isReversed ? ' project-case--reverse' : ''}${
+        isFeatured ? ' project-case--featured' : ''
+      } project-case--${getProjectTheme(project.title)}`}
+    >
+      <span className="project-case__divider" aria-hidden="true" />
+
+      <div className="project-case__content">
+        <div className="project-case__eyebrow">
+          <span className="project-case__mark" aria-hidden="true" />
+          <span className="project-case__index">0{index + 1}.</span>
+          <p className="project-case__category">{project.category}</p>
         </div>
 
-        <div className="projects-grid">
-          {projects.map((project, index) => {
-            const isMobileShowcase = project.layout === 'mobile'
-            const isResponsiveShowcase = project.responsiveShowcase
-            const isInvictus = project.title === 'Invictus Barber Studio'
+        <h3>{project.title}</h3>
+        <p className="project-case__description">{project.description}</p>
+
+        <ul className="project-case__highlights">
+          {project.highlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
+
+        <div className="project-case__actions">
+          {project.actions.slice(0, 2).map((action, actionIndex) => {
+            const actionLabel = action.label === 'Raio-X' || action.label === 'GitHub' ? 'Ver detalhes' : action.label
 
             return (
-              <article
-                className={`glass-card project-card project-card--${project.layout ?? 'default'}${
-                  isMobileShowcase ? ' project-showcase--mobile' : ''
-                }${isResponsiveShowcase ? ' project-showcase--responsive' : ''}${
-                  isInvictus ? ' project-card--invictus' : ''
-                } reveal`}
-                style={{ '--reveal-delay': `${index * 80}ms` }}
-                key={project.title}
+              <a
+                className={actionIndex === 0 ? 'button button-primary' : 'button button-secondary'}
+                href={action.href}
+                key={action.label}
+                {...getExternalLinkProps(action.href)}
               >
-                {isMobileShowcase ? (
-                  <>
-                    <div
-                      className={`project-mobile-showcase-visual${
-                        isResponsiveShowcase ? ' project-preview--responsive-showcase' : ''
-                      }${isInvictus ? ' project-preview' : ''
-                      }`}
-                    >
-                      {isResponsiveShowcase ? (
-                        <>
-                          <img
-                            className="project-screen--desktop"
-                            src={project.desktopImage}
-                            alt={`Preview desktop do projeto ${project.title}`}
-                          />
-                          <img
-                            className="project-screen--mobile"
-                            src={project.image}
-                            alt={`Preview mobile do projeto ${project.title}`}
-                          />
-                        </>
-                      ) : (
-                        <img
-                          className={isInvictus ? 'project-image' : undefined}
-                          src={project.image}
-                          alt={`Preview do projeto ${project.title}`}
-                        />
-                      )}
-                    </div>
-
-                    <div className="project-showcase-actions">
-                      {project.actions.map((action, actionIndex) => (
-                        <a
-                          className={
-                            actionIndex === 0 ? 'button button-primary' : 'button button-secondary'
-                          }
-                          href={action.href}
-                          key={action.label}
-                          {...getExternalLinkProps(action.href)}
-                        >
-                          {action.label}
-                        </a>
-                      ))}
-                    </div>
-
-                    <div className="project-showcase-info">
-                      <h3>{project.title}</h3>
-                      <p>{project.description}</p>
-
-                      <ul className="tag-list" aria-label={`Tags de ${project.title}`}>
-                        {project.tags.map((tag) => (
-                          <li key={tag}>{tag}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="project-visual project-preview--desktop">
-                      <img src={project.image} alt={`Preview do projeto ${project.title}`} />
-                    </div>
-
-                    <div className="project-content">
-                      <h3>{project.title}</h3>
-                      <p>{project.description}</p>
-
-                      <ul className="tag-list" aria-label={`Tags de ${project.title}`}>
-                        {project.tags.map((tag) => (
-                          <li key={tag}>{tag}</li>
-                        ))}
-                      </ul>
-
-                      <div className="project-actions">
-                        {project.actions.map((action, actionIndex) => (
-                          <a
-                            className={
-                              actionIndex === 0
-                                ? 'button button-primary'
-                                : 'button button-secondary'
-                            }
-                            href={action.href}
-                            key={action.label}
-                            {...getExternalLinkProps(action.href)}
-                          >
-                            {action.label}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </>
+                <span>{actionLabel}</span>
+                {actionIndex === 0 && (
+                  <span className="project-case__button-icon" aria-hidden="true">
+                    -&gt;
+                  </span>
                 )}
-              </article>
+              </a>
             )
           })}
+        </div>
+      </div>
+
+      <DeviceShowcase project={project} />
+    </article>
+  )
+}
+
+function Projects() {
+  const projectOrder = ['Invictus Barber', 'Lado a Lado', 'Au-Au / Dog do AuAu']
+  const sortedProjects = projects
+    .filter((project) => projectOrder.includes(project.title))
+    .sort((projectA, projectB) => projectOrder.indexOf(projectA.title) - projectOrder.indexOf(projectB.title))
+
+  return (
+    <section className="section content-section projects-showcase-section" id="projetos">
+      <div className="projects-showcase-section__brand" aria-hidden="true">
+        <strong>CK</strong>
+        <span>Coded by CK</span>
+      </div>
+
+      <div className="container">
+        <div className="section-heading projects-heading">
+          <p className="section-kicker">Projetos</p>
+          <h2>
+            Projetos como cases digitais,
+            <br />
+            <span>nao apenas cards.</span>
+          </h2>
+          <p className="section-support">
+            Interfaces com presenca visual, responsividade e foco em experiencia real de uso.
+          </p>
+        </div>
+
+        <div className="projects-showcase-list">
+          {sortedProjects.map((project, index) => (
+            <ProjectShowcase index={index} key={project.title} project={project} />
+          ))}
+        </div>
+
+        <div className="projects-showcase-footer" aria-hidden="true">
+          <span />
+          <strong>CK</strong>
+          <span />
         </div>
       </div>
     </section>
