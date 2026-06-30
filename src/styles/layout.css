@@ -6694,8 +6694,8 @@ body::after {
 .project-case__content {
   display: grid;
   align-content: center;
-  gap: clamp(13px, 1.25vw, 18px);
-  max-width: 500px;
+  gap: clamp(12px, 1.1vw, 16px);
+  max-width: 492px;
   padding-block: clamp(8px, 1.2vw, 18px);
 }
 
@@ -6742,9 +6742,9 @@ body::after {
   margin: 0;
   color: color-mix(in srgb, var(--case-primary) 76%, #fff 24%);
   max-width: 8.7ch;
-  font-size: clamp(2.9rem, 4.8vw, 5.55rem);
-  line-height: 0.88;
-  letter-spacing: 0.01em;
+  font-size: clamp(2.85rem, 4.65vw, 5.4rem);
+  line-height: 0.89;
+  letter-spacing: 0.008em;
   text-transform: uppercase;
   text-shadow:
     0 2px 0 rgba(0, 0, 0, 0.72),
@@ -6753,7 +6753,7 @@ body::after {
 
 .project-case--featured h3 {
   max-width: 8.2ch;
-  font-size: clamp(3.35rem, 5.25vw, 6rem);
+  font-size: clamp(3.3rem, 5.15vw, 5.9rem);
 }
 
 .project-theme--lado h3 {
@@ -6765,7 +6765,9 @@ body::after {
 }
 
 .project-theme--auau h3 {
-  max-width: 10.2ch;
+  max-width: 9.8ch;
+  font-size: clamp(2.55rem, 4.15vw, 4.85rem);
+  line-height: 0.92;
   color: color-mix(in srgb, var(--case-primary) 82%, #ffd226 18%);
   text-shadow:
     0 2px 0 rgba(0, 0, 0, 0.72),
@@ -6774,37 +6776,37 @@ body::after {
 }
 
 .project-case__description {
-  max-width: 470px;
+  max-width: 455px;
   margin: 0;
-  color: rgba(246, 247, 251, 0.82);
-  font-size: clamp(0.98rem, 1.08vw, 1.1rem);
-  line-height: 1.68;
+  color: rgba(246, 247, 251, 0.8);
+  font-size: clamp(0.97rem, 1.04vw, 1.07rem);
+  line-height: 1.64;
   text-wrap: pretty;
 }
 
 .project-case__highlights {
   display: grid;
-  gap: 13px;
-  margin: clamp(7px, 0.9vw, 12px) 0 0;
+  gap: 11px;
+  margin: clamp(6px, 0.75vw, 10px) 0 0;
   padding: 0;
 }
 
 .project-case__highlights li {
   position: relative;
-  padding-left: 33px;
-  color: rgba(246, 247, 251, 0.82);
-  font-size: clamp(0.91rem, 0.96vw, 0.98rem);
-  line-height: 1.48;
+  padding-left: 32px;
+  color: rgba(246, 247, 251, 0.8);
+  font-size: clamp(0.9rem, 0.94vw, 0.96rem);
+  line-height: 1.45;
 }
 
 .project-case__highlights li::before {
   position: absolute;
-  top: 0.03em;
+  top: 0.05em;
   left: 0;
   display: grid;
   place-items: center;
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   content: "✓";
   border: 1px solid currentColor;
   border-radius: 999px;
@@ -6820,15 +6822,16 @@ body::after {
 .project-case__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: clamp(13px, 1.5vw, 22px);
+  gap: 12px;
+  margin-top: clamp(12px, 1.25vw, 18px);
 }
 
 .project-case__actions .button {
   justify-content: space-between;
-  min-width: 172px;
-  min-height: 56px;
-  padding-inline: 21px;
+  flex: 0 1 174px;
+  min-width: 164px;
+  min-height: 54px;
+  padding-inline: 19px;
   border-color: color-mix(in srgb, var(--case-primary) 58%, transparent);
   border-radius: 6px;
   letter-spacing: 0.01em;
