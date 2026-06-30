@@ -72,12 +72,13 @@ function ProjectShowcase({ index, project }) {
     href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {}
 
   const notebookPhoneShowcase = notebookPhoneShowcases[project.title]
+  const projectTheme = getProjectTheme(project.title)
 
   return (
     <article
       className={`project-case${isReversed ? ' project-case--reverse' : ''}${
         isFeatured ? ' project-case--featured' : ''
-      } project-case--${isReversed ? 'reverse' : 'normal'} project-case--${getProjectTheme(project.title)}`}
+      } project-case--${isReversed ? 'reverse' : 'normal'} project-case--${projectTheme} project-theme--${projectTheme}`}
     >
       <span className="project-case__divider" aria-hidden="true" />
 

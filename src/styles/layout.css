@@ -6603,6 +6603,22 @@ body::after {
   --case-glow: rgba(255, 36, 52, 0.36);
 }
 
+.project-theme--lado::before {
+  background:
+    linear-gradient(color-mix(in srgb, var(--case-primary) 13%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 212, 59, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 86% 48%, rgba(255, 212, 59, 0.16), transparent 18rem),
+    radial-gradient(circle at 10% 18%, rgba(245, 158, 11, 0.12), transparent 14rem);
+}
+
+.project-theme--auau::before {
+  background:
+    linear-gradient(color-mix(in srgb, var(--case-primary) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 210, 38, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 12% 48%, rgba(255, 36, 52, 0.18), transparent 17rem),
+    radial-gradient(circle at 82% 20%, rgba(255, 210, 38, 0.14), transparent 16rem);
+}
+
 .project-case::before,
 .project-case::after {
   position: absolute;
@@ -6627,6 +6643,18 @@ body::after {
     linear-gradient(115deg, transparent 0 8%, color-mix(in srgb, var(--case-primary) 22%, transparent) 8.12%, transparent 8.55% 100%),
     linear-gradient(115deg, transparent 0 91%, color-mix(in srgb, var(--case-primary) 18%, transparent) 91.12%, transparent 91.55% 100%);
   opacity: 0.72;
+}
+
+.project-theme--lado::after {
+  background:
+    linear-gradient(115deg, transparent 0 9%, rgba(255, 212, 59, 0.26) 9.1%, transparent 9.55% 100%),
+    linear-gradient(115deg, transparent 0 91%, rgba(245, 158, 11, 0.22) 91.1%, transparent 91.55% 100%);
+}
+
+.project-theme--auau::after {
+  background:
+    linear-gradient(115deg, transparent 0 8%, rgba(255, 36, 52, 0.28) 8.1%, transparent 8.55% 100%),
+    linear-gradient(115deg, transparent 0 90%, rgba(255, 210, 38, 0.24) 90.1%, transparent 90.55% 100%);
 }
 
 .project-case__divider {
@@ -6665,30 +6693,33 @@ body::after {
 .project-case__content {
   display: grid;
   align-content: center;
-  gap: 16px;
-  max-width: 460px;
+  gap: clamp(14px, 1.35vw, 20px);
+  max-width: 500px;
+  padding-block: clamp(8px, 1.2vw, 18px);
 }
 
 .project-case__eyebrow {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   color: var(--case-primary);
   font-family: var(--font-tech);
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
   font-weight: 900;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .project-case__mark {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   background:
     radial-gradient(circle at 50% 50%, currentColor 0 9%, transparent 10%),
     linear-gradient(135deg, transparent 0 38%, currentColor 39% 45%, transparent 46%),
     linear-gradient(45deg, transparent 0 38%, currentColor 39% 45%, transparent 46%);
-  filter: drop-shadow(0 0 10px var(--case-glow));
+  filter:
+    drop-shadow(0 0 10px var(--case-glow))
+    drop-shadow(0 0 18px color-mix(in srgb, var(--case-primary) 20%, transparent));
   opacity: 0.94;
 }
 
@@ -6709,9 +6740,10 @@ body::after {
 .project-case h3 {
   margin: 0;
   color: color-mix(in srgb, var(--case-primary) 76%, #fff 24%);
-  font-size: clamp(2.8rem, 4.7vw, 5.45rem);
-  line-height: 0.9;
-  letter-spacing: 0;
+  max-width: 8.6ch;
+  font-size: clamp(3rem, 4.95vw, 5.7rem);
+  line-height: 0.86;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   text-shadow:
     0 2px 0 rgba(0, 0, 0, 0.72),
@@ -6719,63 +6751,89 @@ body::after {
 }
 
 .project-case--featured h3 {
-  font-size: clamp(3.25rem, 5.2vw, 6rem);
+  max-width: 8.2ch;
+  font-size: clamp(3.4rem, 5.35vw, 6.15rem);
+}
+
+.project-theme--lado h3 {
+  color: color-mix(in srgb, var(--case-primary) 84%, #fff 16%);
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.7),
+    0 0 28px rgba(255, 212, 59, 0.24);
+}
+
+.project-theme--auau h3 {
+  color: color-mix(in srgb, var(--case-primary) 82%, #ffd226 18%);
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.72),
+    0 0 24px rgba(255, 36, 52, 0.28),
+    0 0 18px rgba(255, 210, 38, 0.14);
 }
 
 .project-case__description {
-  max-width: 430px;
+  max-width: 470px;
   margin: 0;
-  color: rgba(246, 247, 251, 0.78);
-  font-size: clamp(0.98rem, 1.12vw, 1.08rem);
-  line-height: 1.58;
+  color: rgba(246, 247, 251, 0.84);
+  font-size: clamp(1rem, 1.13vw, 1.12rem);
+  line-height: 1.72;
+  text-wrap: pretty;
 }
 
 .project-case__highlights {
   display: grid;
-  gap: 12px;
-  margin: 12px 0 0;
+  gap: 14px;
+  margin: clamp(8px, 1vw, 14px) 0 0;
   padding: 0;
 }
 
 .project-case__highlights li {
   position: relative;
-  padding-left: 28px;
-  color: rgba(246, 247, 251, 0.78);
-  font-size: 0.94rem;
-  line-height: 1.4;
+  padding-left: 34px;
+  color: rgba(246, 247, 251, 0.82);
+  font-size: clamp(0.92rem, 0.98vw, 1rem);
+  line-height: 1.48;
 }
 
 .project-case__highlights li::before {
   position: absolute;
-  top: 0.1em;
+  top: 0.03em;
   left: 0;
   display: grid;
   place-items: center;
-  width: 16px;
-  height: 16px;
+  width: 21px;
+  height: 21px;
   content: "✓";
   border: 1px solid currentColor;
   border-radius: 999px;
   color: var(--case-primary);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   line-height: 1;
-  box-shadow: 0 0 14px var(--case-glow);
+  background: color-mix(in srgb, var(--case-primary) 9%, transparent);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #fff 8%, transparent),
+    0 0 16px var(--case-glow);
 }
 
 .project-case__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 18px;
+  gap: 14px;
+  margin-top: clamp(16px, 1.8vw, 26px);
 }
 
 .project-case__actions .button {
   justify-content: space-between;
-  min-width: 166px;
-  min-height: 54px;
-  padding-inline: 20px;
+  min-width: 176px;
+  min-height: 58px;
+  padding-inline: 22px;
   border-color: color-mix(in srgb, var(--case-primary) 58%, transparent);
   border-radius: 6px;
+  letter-spacing: 0.01em;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
 }
 
 .project-case__actions .button-primary {
@@ -6788,6 +6846,26 @@ body::after {
 
 .project-case__actions .button-secondary {
   background: rgba(255, 255, 255, 0.012);
+}
+
+.project-case__actions .button:hover {
+  border-color: color-mix(in srgb, var(--case-primary) 82%, #fff 18%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 0 30px color-mix(in srgb, var(--case-primary) 24%, transparent);
+  transform: translateY(-2px);
+}
+
+.project-theme--auau .project-case__actions .button-primary {
+  color: #fff;
+  background:
+    linear-gradient(135deg, #ff2434, #a90512 62%),
+    linear-gradient(135deg, var(--case-primary), var(--case-secondary));
+}
+
+.project-theme--auau .project-case__actions .button-secondary {
+  border-color: rgba(255, 210, 38, 0.48);
+  color: #fff7d1;
 }
 
 .project-case__button-icon {
@@ -7160,13 +7238,15 @@ body::after {
   }
 
   .project-case {
-    gap: 22px;
-    padding: 28px 16px 34px;
+    gap: 24px;
+    padding: 32px 16px 36px;
   }
 
   .project-case h3,
   .project-case--featured h3 {
-    font-size: clamp(2.25rem, 12vw, 3.3rem);
+    max-width: 9ch;
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+    line-height: 0.9;
   }
 
   .project-case__eyebrow {
@@ -7175,11 +7255,19 @@ body::after {
   }
 
   .project-case__description {
+    max-width: 100%;
     font-size: 0.92rem;
+    line-height: 1.62;
   }
 
   .project-case__highlights li {
-    font-size: 0.84rem;
+    padding-left: 31px;
+    font-size: 0.86rem;
+  }
+
+  .project-case__highlights li::before {
+    width: 19px;
+    height: 19px;
   }
 
   .project-case__actions {
