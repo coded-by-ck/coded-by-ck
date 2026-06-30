@@ -6568,9 +6568,9 @@ body::after {
   display: grid;
   grid-template-columns: minmax(278px, 0.68fr) minmax(0, 1.42fr);
   align-items: center;
-  gap: clamp(28px, 5vw, 74px);
-  min-height: clamp(520px, 51vw, 690px);
-  padding: clamp(34px, 4.2vw, 58px) clamp(22px, 3.8vw, 52px);
+  gap: clamp(34px, 5vw, 78px);
+  min-height: clamp(540px, 51vw, 700px);
+  padding: clamp(40px, 4.6vw, 64px) clamp(24px, 4vw, 58px);
   overflow: hidden;
   isolation: isolate;
   border-top: 1px solid color-mix(in srgb, var(--case-primary) 35%, transparent);
@@ -6582,7 +6582,7 @@ body::after {
 
 .project-case--featured {
   min-height: clamp(610px, 57vw, 770px);
-  padding-top: clamp(26px, 3.6vw, 42px);
+  padding-top: clamp(34px, 4vw, 52px);
 }
 
 .project-case--invictus {
@@ -6674,6 +6674,7 @@ body::after {
 
 .project-case--reverse .project-case__content {
   order: 2;
+  justify-self: end;
 }
 
 .project-case--reverse .device-showcase {
@@ -6693,7 +6694,7 @@ body::after {
 .project-case__content {
   display: grid;
   align-content: center;
-  gap: clamp(14px, 1.35vw, 20px);
+  gap: clamp(13px, 1.25vw, 18px);
   max-width: 500px;
   padding-block: clamp(8px, 1.2vw, 18px);
 }
@@ -6701,12 +6702,12 @@ body::after {
 .project-case__eyebrow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
   color: var(--case-primary);
   font-family: var(--font-tech);
-  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+  font-size: clamp(0.78rem, 0.86vw, 0.92rem);
   font-weight: 900;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.065em;
   text-transform: uppercase;
 }
 
@@ -6740,9 +6741,9 @@ body::after {
 .project-case h3 {
   margin: 0;
   color: color-mix(in srgb, var(--case-primary) 76%, #fff 24%);
-  max-width: 8.6ch;
-  font-size: clamp(3rem, 4.95vw, 5.7rem);
-  line-height: 0.86;
+  max-width: 8.7ch;
+  font-size: clamp(2.9rem, 4.8vw, 5.55rem);
+  line-height: 0.88;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   text-shadow:
@@ -6752,10 +6753,11 @@ body::after {
 
 .project-case--featured h3 {
   max-width: 8.2ch;
-  font-size: clamp(3.4rem, 5.35vw, 6.15rem);
+  font-size: clamp(3.35rem, 5.25vw, 6rem);
 }
 
 .project-theme--lado h3 {
+  max-width: 9ch;
   color: color-mix(in srgb, var(--case-primary) 84%, #fff 16%);
   text-shadow:
     0 2px 0 rgba(0, 0, 0, 0.7),
@@ -6763,6 +6765,7 @@ body::after {
 }
 
 .project-theme--auau h3 {
+  max-width: 10.2ch;
   color: color-mix(in srgb, var(--case-primary) 82%, #ffd226 18%);
   text-shadow:
     0 2px 0 rgba(0, 0, 0, 0.72),
@@ -6773,24 +6776,24 @@ body::after {
 .project-case__description {
   max-width: 470px;
   margin: 0;
-  color: rgba(246, 247, 251, 0.84);
-  font-size: clamp(1rem, 1.13vw, 1.12rem);
-  line-height: 1.72;
+  color: rgba(246, 247, 251, 0.82);
+  font-size: clamp(0.98rem, 1.08vw, 1.1rem);
+  line-height: 1.68;
   text-wrap: pretty;
 }
 
 .project-case__highlights {
   display: grid;
-  gap: 14px;
-  margin: clamp(8px, 1vw, 14px) 0 0;
+  gap: 13px;
+  margin: clamp(7px, 0.9vw, 12px) 0 0;
   padding: 0;
 }
 
 .project-case__highlights li {
   position: relative;
-  padding-left: 34px;
+  padding-left: 33px;
   color: rgba(246, 247, 251, 0.82);
-  font-size: clamp(0.92rem, 0.98vw, 1rem);
+  font-size: clamp(0.91rem, 0.96vw, 0.98rem);
   line-height: 1.48;
 }
 
@@ -6800,13 +6803,13 @@ body::after {
   left: 0;
   display: grid;
   place-items: center;
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
   content: "✓";
   border: 1px solid currentColor;
   border-radius: 999px;
   color: var(--case-primary);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   line-height: 1;
   background: color-mix(in srgb, var(--case-primary) 9%, transparent);
   box-shadow:
@@ -6817,15 +6820,15 @@ body::after {
 .project-case__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: clamp(16px, 1.8vw, 26px);
+  gap: 15px;
+  margin-top: clamp(13px, 1.5vw, 22px);
 }
 
 .project-case__actions .button {
   justify-content: space-between;
-  min-width: 176px;
-  min-height: 58px;
-  padding-inline: 22px;
+  min-width: 172px;
+  min-height: 56px;
+  padding-inline: 21px;
   border-color: color-mix(in srgb, var(--case-primary) 58%, transparent);
   border-radius: 6px;
   letter-spacing: 0.01em;
@@ -6866,6 +6869,39 @@ body::after {
 .project-theme--auau .project-case__actions .button-secondary {
   border-color: rgba(255, 210, 38, 0.48);
   color: #fff7d1;
+}
+
+.project-theme--lado .project-case__highlights li::before {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 212, 59, 0.2), transparent 58%),
+    rgba(255, 212, 59, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 18px rgba(255, 212, 59, 0.28);
+}
+
+.project-theme--lado .project-case__actions .button-primary {
+  color: #0d0900;
+  background: linear-gradient(135deg, #ffd43b, #bf7d0c);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    0 0 30px rgba(255, 212, 59, 0.24);
+}
+
+.project-theme--lado .project-case__actions .button-secondary {
+  color: #ffe89a;
+  border-color: rgba(255, 212, 59, 0.54);
+}
+
+.project-theme--auau .project-case__highlights li::before {
+  border-color: rgba(255, 210, 38, 0.72);
+  color: #ffd226;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 210, 38, 0.2), transparent 58%),
+    rgba(255, 36, 52, 0.12);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 18px rgba(255, 36, 52, 0.3);
 }
 
 .project-case__button-icon {
@@ -8441,9 +8477,12 @@ body::after {
   height: auto;
   max-width: none;
   object-fit: contain;
+  image-rendering: auto;
+  backface-visibility: hidden;
   filter: none;
   opacity: 1;
   pointer-events: none;
+  transform-style: preserve-3d;
 }
 
 .case-device-showcase__laptop-screen,
@@ -8466,9 +8505,12 @@ body::after {
   height: 100%;
   object-fit: contain;
   object-position: top center;
+  image-rendering: auto;
+  backface-visibility: hidden;
   filter: none;
   opacity: 1;
   mix-blend-mode: normal;
+  transform-style: preserve-3d;
 }
 
 .case-device-showcase__laptop-screen,
@@ -8555,4 +8597,17 @@ body::after {
   bottom: -1% !important;
   transform: translate(40px, 50px);
   z-index: 5;
+}
+
+.projects-showcase-section .case-device-showcase__laptop-screen img,
+.projects-showcase-section .case-device-showcase__phone-image,
+.projects-showcase-section .invictus-laptop-screen img,
+.projects-showcase-section .invictus-phone-showcase {
+  image-rendering: auto;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+  transform-style: preserve-3d;
 }
