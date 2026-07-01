@@ -2,6 +2,9 @@ import auauPhoneShowcase from '../assets/devices/auau-phone-showcase.png'
 import invictusNotebookMockup from '../assets/devices/notebook.png'
 import invictusPhoneShowcase from '../assets/devices/invictus-phone-showcase.png'
 import ladoPhoneShowcase from '../assets/devices/lado-phone-showcase.png'
+import invictusLogo from '../assets/logos/invictus-logo.png'
+import ladoLogo from '../assets/logos/lado-a-deus.png'
+import auauMascot from '../assets/logos/mascote.png'
 import { projects } from '../data/projects'
 
 const notebookPhoneShowcases = {
@@ -22,6 +25,30 @@ const notebookPhoneShowcases = {
     notebookMockup: invictusNotebookMockup,
     phoneShowcase: auauPhoneShowcase,
     phoneAlt: 'Dog do AuAu mobile showcase',
+  },
+}
+
+const projectBrandAssets = {
+  'Invictus Barber': {
+    logo: invictusLogo,
+    logoAlt: 'Invictus Barber Studio',
+    logoVariant: 'invictus',
+    title: 'Invictus Barber',
+    logoAsTitle: true,
+  },
+  'Lado a Lado': {
+    logo: ladoLogo,
+    logoAlt: 'Lado a Lado',
+    logoVariant: 'lado',
+    title: 'Lado a Lado',
+    logoAsTitle: true,
+    subtitle: 'Barbearia classica com identidade marcante',
+  },
+  'Au-Au / Dog do AuAu': {
+    logo: auauMascot,
+    logoAlt: 'Mascote Dog do AuAu',
+    logoVariant: 'auau',
+    title: 'Dog do AuAu',
   },
 }
 
@@ -73,6 +100,9 @@ function ProjectShowcase({ index, project }) {
 
   const notebookPhoneShowcase = notebookPhoneShowcases[project.title]
   const projectTheme = getProjectTheme(project.title)
+  const brandAsset = projectBrandAssets[project.title]
+  const projectTitle = brandAsset?.title ?? project.title
+  const isInvictus = projectTheme === 'invictus'
 
   return (
     <article
@@ -82,14 +112,25 @@ function ProjectShowcase({ index, project }) {
     >
       <span className="project-case__divider" aria-hidden="true" />
 
-      <div className="project-case__content">
+      <div className={`project-case__content${isInvictus ? ' project-case__content--invictus' : ''}`}>
         <div className="project-case__eyebrow">
           <span className="project-case__mark" aria-hidden="true" />
           <span className="project-case__index">0{index + 1}.</span>
           <p className="project-case__category">{project.category}</p>
         </div>
 
-        <h3>{project.title}</h3>
+        {brandAsset?.logo && (
+          <img
+            className={`project-brand-logo project-brand-logo--${brandAsset.logoVariant} project-brand--${brandAsset.logoVariant}`}
+            src={brandAsset.logo}
+            alt={brandAsset.logoAlt}
+          />
+        )}
+
+        <h3 className={brandAsset?.logoAsTitle ? 'project-case__title--logo-backed' : undefined}>
+          {projectTitle}
+        </h3>
+        {brandAsset?.subtitle && <p className="project-brand-subtitle">{brandAsset.subtitle}</p>}
         <p className="project-case__description">{project.description}</p>
 
         <ul className="project-case__highlights">
