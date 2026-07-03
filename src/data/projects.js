@@ -48,13 +48,13 @@ export const projects = [
   },
   {
     title: 'Au-Au / Dog do AuAu',
-    category: 'Cardapio digital',
+    category: 'Cardápio digital',
     description:
-      'Cardapio digital divertido e direto ao ponto, com identidade vibrante que abre o apetite e facilita o pedido pelo WhatsApp.',
+      'Cardápio digital divertido e direto ao ponto, com identidade vibrante que abre o apetite e facilita o pedido pelo WhatsApp.',
     highlights: [
-      'Cardapio interativo e responsivo',
+      'Cardápio interativo e responsivo',
       'Pedido direto via WhatsApp',
-      'Visual vibrante que gera conexao',
+      'Visual vibrante que gera conexão',
     ],
     devices: {
       laptop: { image: auauDesktopImage, alt: 'Print desktop do projeto Au-Au no laptop' },

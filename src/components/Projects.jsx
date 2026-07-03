@@ -4,7 +4,6 @@ import invictusPhoneShowcase from '../assets/devices/invictus-phone-showcase.png
 import ladoPhoneShowcase from '../assets/devices/lado-phone-showcase.png'
 import invictusLogo from '../assets/logos/invictus-logo.png'
 import ladoLogo from '../assets/logos/lado-a-deus.png'
-import auauMascot from '../assets/logos/mascote.png'
 import { projects } from '../data/projects'
 
 const notebookPhoneShowcases = {
@@ -42,11 +41,9 @@ const projectBrandAssets = {
     logoVariant: 'lado',
     title: 'Lado a Lado',
     logoAsTitle: true,
-    subtitle: 'Barbearia classica com identidade marcante',
+    subtitle: 'BARBEARIA CLÁSSICA COM IDENTIDADE MARCANTE',
   },
   'Au-Au / Dog do AuAu': {
-    logo: auauMascot,
-    logoAlt: 'Mascote Dog do AuAu',
     logoVariant: 'auau',
     title: 'Dog do AuAu',
   },
