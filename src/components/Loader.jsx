@@ -43,7 +43,7 @@ const dataStreams = [
   'E1B4',
 ]
 
-const galaxyArms = Array.from({ length: 260 }, (_, index) => {
+const galaxyArms = Array.from({ length: 160 }, (_, index) => {
   const arm = index % 2
   const step = Math.floor(index / 2)
   const radius = 28 + step * 4.2
@@ -67,7 +67,7 @@ const galaxyArms = Array.from({ length: 260 }, (_, index) => {
   }
 })
 
-const starField = Array.from({ length: 430 }, (_, index) => {
+const starField = Array.from({ length: 160 }, (_, index) => {
   const angle = (index * 137.5 + (index % 11) * 7) % 360
   const radius = 30 + ((index * 47) % 720)
   const size = index % 31 === 0 ? 3.2 : index % 13 === 0 ? 2.1 : index % 5 === 0 ? 1.45 : 1
@@ -86,7 +86,7 @@ const starField = Array.from({ length: 430 }, (_, index) => {
   }
 })
 
-const deepStars = Array.from({ length: 340 }, (_, index) => ({
+const deepStars = Array.from({ length: 120 }, (_, index) => ({
   id: `deep-star-${index}`,
   style: {
     '--x': `${2 + ((index * 37) % 96)}%`,
@@ -97,7 +97,7 @@ const deepStars = Array.from({ length: 340 }, (_, index) => ({
   },
 }))
 
-const cosmicDust = Array.from({ length: 190 }, (_, index) => {
+const cosmicDust = Array.from({ length: 70 }, (_, index) => {
   const angle = (index * 43 + (index % 6) * 17) % 360
   const radius = 72 + ((index * 37) % 620)
 
@@ -114,7 +114,7 @@ const cosmicDust = Array.from({ length: 190 }, (_, index) => {
   }
 })
 
-const constellations = Array.from({ length: 34 }, (_, index) => ({
+const constellations = Array.from({ length: 24 }, (_, index) => ({
   id: `constellation-${index}`,
   style: {
     '--x': `${6 + ((index * 29) % 88)}%`,

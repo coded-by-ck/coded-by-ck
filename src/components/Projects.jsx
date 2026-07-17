@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import auauPhoneShowcase from '../assets/devices/auau-phone-showcase.png'
 import invictusNotebookMockup from '../assets/devices/notebook.png'
 import invictusPhoneShowcase from '../assets/devices/invictus-phone-showcase.png'
 import ladoPhoneShowcase from '../assets/devices/lado-phone-showcase.png'
 import invictusLogo from '../assets/logos/invictus-logo.png'
 import ladoLogo from '../assets/logos/lado-a-deus.png'
+import cryptoDashboardImage from '../assets/projects/crypto-dashboard.png.png'
+import invictusAdminDashboardImage from '../assets/projects/invictus-admin-dashboard.png.png'
+import retificaDashboardImage from '../assets/projects/retifica-dashboard.png.png'
 import { projects } from '../data/projects'
 
 const notebookPhoneShowcases = {
@@ -49,6 +53,87 @@ const projectBrandAssets = {
   },
 }
 
+const systemProjects = [
+  {
+    id: 'barber-dashboard',
+    index: '01',
+    name: 'Barber Dashboard',
+    short: 'Gestão operacional para barbearias premium.',
+    eyebrow: 'Dashboard',
+    kind: 'Sistema Web',
+    area: 'Gestão',
+    tone: 'gold',
+    image: invictusAdminDashboardImage,
+    imageAlt: 'Print do painel administrativo Invictus para gestão de barbearia',
+    description:
+      'Sistema de gestão para barbearia, com foco em agendamentos, clientes, barbeiros, horários, painel administrativo e controle operacional.',
+    features: ['Agendamentos', 'Clientes', 'Barbeiros', 'Horários', 'Painel admin', 'Gestão operacional'],
+    metrics: [
+      ['Agenda', '86%'],
+      ['Clientes', '248'],
+      ['Receita', 'R$ 12k'],
+    ],
+    rows: ['Corte premium', 'Barba completa', 'Horario confirmado'],
+    actions: [
+      { label: 'Ver sistema', href: '#' },
+      { label: 'Ver detalhes', href: '#' },
+    ],
+  },
+  {
+    id: 'retifica-os',
+    index: '02',
+    name: 'Retífica OS',
+    short: 'Controle interno de produção e ordens de serviço.',
+    eyebrow: 'Operacional',
+    kind: 'Sistema Web',
+    area: 'Produção',
+    tone: 'copper',
+    image: retificaDashboardImage,
+    imageAlt: 'Print do sistema Retífica OS com painel operacional',
+    description:
+      'Sistema interno para retífica, focado em ordens de serviço, clientes, peças, status, etiquetas, financeiro e controle de produção.',
+    features: ['Ordens de serviço', 'Clientes', 'Status', 'Etiquetas', 'Financeiro', 'Impressão', 'Produção'],
+    metrics: [
+      ['OS abertas', '34'],
+      ['Producao', '71%'],
+      ['Etiquetas', '128'],
+    ],
+    rows: ['Motor em analise', 'Pecas separadas', 'Financeiro pendente'],
+    actions: [
+      { label: 'Ver sistema', href: '#' },
+      { label: 'Ver detalhes', href: '#' },
+    ],
+  },
+  {
+    id: 'crypto-dashboard',
+    index: '03',
+    name: 'Crypto Dashboard',
+    short: 'Análise visual de ativos, cards e indicadores.',
+    eyebrow: 'Analytics',
+    kind: 'Dashboard',
+    area: 'Tech',
+    tone: 'violet',
+    image: cryptoDashboardImage,
+    imageAlt: 'Print do Crypto Dashboard com indicadores e gráficos',
+    description:
+      'Dashboard visual para acompanhamento de criptoativos, indicadores, cards financeiros e interface moderna de análise.',
+    features: ['Dashboard', 'Criptomoedas', 'Indicadores', 'Cards financeiros', 'Interface analítica', 'Visual tech'],
+    metrics: [
+      ['BTC', '+4.8%'],
+      ['Volume', '2.4M'],
+      ['Risco', 'Medio'],
+    ],
+    rows: ['Bitcoin acumulando', 'Ethereum em alta', 'Liquidez monitorada'],
+    actions: [
+      { label: 'Ver sistema', href: '#' },
+      { label: 'Ver detalhes', href: '#' },
+    ],
+  },
+]
+
+const getExternalLinkProps = (href) =>
+  href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {}
+
 function NotebookPhoneCaseShowcase({ project, showcase }) {
   const variantClass = `case-device-showcase--${showcase.variant}`
 
@@ -91,9 +176,6 @@ function ProjectShowcase({ index, project }) {
 
     return 'default'
   }
-
-  const getExternalLinkProps = (href) =>
-    href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {}
 
   const notebookPhoneShowcase = notebookPhoneShowcases[project.title]
   const projectTheme = getProjectTheme(project.title)
@@ -164,6 +246,140 @@ function ProjectShowcase({ index, project }) {
   )
 }
 
+function SystemScreenPreview({ system }) {
+  return (
+    <div className={`systems-display systems-display--${system.tone} systems-display--${system.id}`}>
+      <div className="systems-display__chrome" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <strong>{system.name}</strong>
+      </div>
+
+      <div className="systems-display__screen">
+        {system.image ? (
+          <img src={system.image} alt={system.imageAlt} />
+        ) : (
+          <div className="systems-display__empty" aria-hidden="true" />
+        )}
+      </div>
+    </div>
+  )
+}
+
+function SystemsHub() {
+  const [activeSystemId, setActiveSystemId] = useState(systemProjects[0].id)
+  const activeSystem = systemProjects.find((system) => system.id === activeSystemId) ?? systemProjects[0]
+
+  return (
+    <section className="systems-hub-section" aria-labelledby="systems-hub-title">
+      <div className="systems-hub__header">
+        <p className="systems-hub__kicker">// CONSOLE DE SISTEMAS CK</p>
+        <h3 id="systems-hub-title">CENTRAL DE SISTEMAS</h3>
+        <p>
+          Sistemas reais desenvolvidos para gestão, operação e análise com interfaces prontas para uso.
+        </p>
+      </div>
+
+      <div className="systems-hub">
+        <div className="systems-hub__ambient" aria-hidden="true" />
+
+        <div className="systems-hub__console">
+        <div className="systems-hub__menu" role="tablist" aria-label="Sistemas">
+          {systemProjects.map((system) => {
+            const isActive = system.id === activeSystem.id
+
+            return (
+              <button
+                aria-controls={`system-panel-${system.id}`}
+                aria-selected={isActive}
+                className={`systems-menu-item systems-menu-item--${system.tone}${isActive ? ' is-active' : ''}`}
+                id={`system-tab-${system.id}`}
+                key={system.id}
+                onClick={() => setActiveSystemId(system.id)}
+                role="tab"
+                type="button"
+              >
+                <span className="systems-menu-item__icon" aria-hidden="true">
+                  {system.index}
+                </span>
+                <span className="systems-menu-item__copy">
+                  <strong>{system.name}</strong>
+                  <small>{system.short}</small>
+                </span>
+                <span className="systems-menu-item__arrow" aria-hidden="true">
+                  ›
+                </span>
+              </button>
+            )
+          })}
+
+          <div className="systems-hub__status" aria-hidden="true">
+            <span />
+            <strong>Todos os sistemas</strong>
+            <small>100% operacionais</small>
+          </div>
+        </div>
+
+          <div className="systems-command">
+          <article
+            aria-labelledby={`system-tab-${activeSystem.id}`}
+            className={`systems-panel systems-panel--${activeSystem.tone}`}
+            id={`system-panel-${activeSystem.id}`}
+            role="tabpanel"
+          >
+            <div className="systems-panel__intro">
+              <div className="systems-panel__content">
+                <span className="systems-panel__status">Sistema ativo</span>
+
+                <h4>{activeSystem.name}</h4>
+                <span className="systems-panel__underline" aria-hidden="true" />
+                <p>{activeSystem.description}</p>
+
+                <div className="systems-panel__meta">
+                  <span>Status ativo</span>
+                  <span>{activeSystem.kind}</span>
+                  <span>{activeSystem.area}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="systems-panel__preview">
+              <SystemScreenPreview system={activeSystem} />
+            </div>
+
+            <div className="systems-panel__features">
+              <span>Recursos principais</span>
+              {activeSystem.features.map((feature) => (
+                <i key={feature}>{feature}</i>
+              ))}
+            </div>
+
+            <div className="systems-panel__actions">
+              {activeSystem.actions.map((action, index) => {
+                const showArrow = index === 0 && !action.label.includes('→')
+
+                return (
+                  <a
+                    className={index === 0 ? 'button button-primary' : 'button button-secondary'}
+                    href={action.href}
+                    key={action.label}
+                    {...getExternalLinkProps(action.href)}
+                  >
+                    <span>{action.label}</span>
+                    {showArrow && <span aria-hidden="true">{'→'}</span>}
+                  </a>
+                )
+              })}
+            </div>
+          </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Projects() {
   const projectOrder = ['Invictus Barber', 'Lado a Lado', 'Au-Au / Dog do AuAu']
   const sortedProjects = projects
@@ -181,9 +397,7 @@ function Projects() {
         <div className="section-heading projects-heading">
           <p className="section-kicker">Projetos</p>
           <h2>
-            Projetos como cases digitais,
-            <br />
-            <span>nao apenas cards.</span>
+            Projetos como cases digitais
           </h2>
           <p className="section-support">
             Interfaces com presenca visual, responsividade e foco em experiencia real de uso.
@@ -195,6 +409,8 @@ function Projects() {
             <ProjectShowcase index={index} key={project.title} project={project} />
           ))}
         </div>
+
+        <SystemsHub />
 
         <div className="projects-showcase-footer" aria-hidden="true">
           <span />

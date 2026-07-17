@@ -3763,3 +3763,141 @@
     animation-duration: 1.2s;
   }
 }
+
+/* Performance tuning: preserve the cinematic loader, but avoid expensive paint loops. */
+.ck-loader {
+  contain: layout paint;
+}
+
+.cosmic-galaxy,
+.cosmic-stars,
+.cosmic-dust,
+.cosmic-arm,
+.cosmic-constellation,
+.cosmic-core,
+.loader-core,
+.loader-core__mark,
+.loader-core__progress i,
+.code-gravity__fragment,
+.code-field__line,
+.loader-stream span {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.ck-loader__dashboard,
+.ck-loader__panel {
+  backdrop-filter: none;
+}
+
+.cosmic-stars,
+.cosmic-dust,
+.cosmic-arm,
+.cosmic-constellation,
+.cosmic-galaxy::after,
+.cosmic-nebula,
+.cosmic-core,
+.cosmic-core::before,
+.cosmic-core::after {
+  animation-iteration-count: 1;
+}
+
+.cosmic-nebula--red {
+  filter: blur(9px);
+}
+
+.cosmic-nebula--violet {
+  filter: blur(8px);
+}
+
+.cosmic-core::before,
+.cosmic-core::after {
+  filter: blur(2px);
+}
+
+.loader-core__mark {
+  filter:
+    drop-shadow(-4px 0 0 rgba(180, 92, 255, 0.18))
+    drop-shadow(4px 0 0 rgba(255, 45, 77, 0.22))
+    drop-shadow(0 0 16px rgba(255, 45, 77, 0.44))
+    drop-shadow(0 0 38px rgba(180, 92, 255, 0.24));
+}
+
+@keyframes cosmicGalaxyEnter {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(-50%, -50%, 0) rotateX(62deg) rotateZ(-38deg) scale(1.08);
+  }
+  12% {
+    opacity: 0.74;
+    transform: translate3d(-50%, -50%, 0) rotateX(61deg) rotateZ(-33deg) scale(1.08);
+  }
+  26% {
+    opacity: 0.95;
+    transform: translate3d(-50%, -50%, 0) rotateX(60deg) rotateZ(-25deg) scale(1.02);
+  }
+  84% {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) rotateX(58deg) rotateZ(-12deg) scale(1.08);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) rotateX(56deg) rotateZ(-4deg) scale(1.14);
+  }
+}
+
+@keyframes centralTitleReveal {
+  0%,
+  30% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  42%,
+  86% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  92%,
+  100% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes cosmicFinalFlash {
+  0%,
+  79% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px) scale(0.98);
+  }
+  82% {
+    opacity: 0.88;
+    transform: translateX(calc(-50% - 4px)) translateY(0) scale(1);
+  }
+  84% {
+    opacity: 0.42;
+    transform: translateX(calc(-50% + 5px)) translateY(0) scale(1.01);
+  }
+  86%,
+  98% {
+    opacity: 0.92;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-4px) scale(1.02);
+  }
+}
+
+@media (max-width: 640px) {
+  .cosmic-nebula--red,
+  .cosmic-nebula--violet {
+    filter: blur(5px);
+  }
+
+  .cosmic-core::before,
+  .cosmic-core::after {
+    filter: blur(1px);
+  }
+}

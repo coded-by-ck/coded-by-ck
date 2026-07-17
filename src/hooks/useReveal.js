@@ -1,7 +1,11 @@
 import { useEffect } from 'react'
 
-export function useReveal() {
+export function useReveal(enabled = true) {
   useEffect(() => {
+    if (!enabled) {
+      return undefined
+    }
+
     const elements = Array.from(document.querySelectorAll('.reveal'))
 
     if (!elements.length) {
@@ -35,5 +39,5 @@ export function useReveal() {
     elements.forEach((element) => observer.observe(element))
 
     return () => observer.disconnect()
-  }, [])
+  }, [enabled])
 }

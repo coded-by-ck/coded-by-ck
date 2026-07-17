@@ -1,0 +1,565 @@
+.ck-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 48% 46%, rgba(255, 255, 255, 0.08), transparent 5rem),
+    radial-gradient(circle at 42% 44%, rgba(255, 27, 45, 0.28), transparent 18rem),
+    radial-gradient(circle at 68% 22%, rgba(177, 60, 255, 0.18), transparent 24rem),
+    radial-gradient(circle at 15% 78%, rgba(122, 0, 13, 0.22), transparent 24rem),
+    linear-gradient(180deg, #010102 0%, #050008 48%, #010102 100%);
+  pointer-events: auto;
+  perspective: 1300px;
+  animation: ckGalaxyExit 3.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.ck-galaxy-breach::before,
+.ck-galaxy-breach::after,
+.ck-galaxy-breach__nebula,
+.ck-galaxy-breach__grid,
+.ck-galaxy-breach__scan {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.ck-galaxy-breach::before {
+  z-index: -3;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.12) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 22%, rgba(255, 225, 235, 0.1) 0 1px, transparent 2px),
+    radial-gradient(circle at 26% 68%, rgba(210, 247, 255, 0.09) 0 1px, transparent 2px),
+    radial-gradient(circle at 91% 72%, rgba(177, 60, 255, 0.12) 0 1px, transparent 2px);
+  background-size: 142px 142px, 190px 190px, 164px 164px, 210px 210px;
+  opacity: 0.5;
+  animation: ckGalaxyStars 3.2s ease forwards;
+}
+
+.ck-galaxy-breach::after {
+  z-index: 10;
+  background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.042) 0 1px, transparent 1px 6px);
+  mix-blend-mode: screen;
+  opacity: 0.11;
+}
+
+.ck-galaxy-breach__nebula {
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 34% 43%, rgba(255, 27, 45, 0.22), transparent 34%),
+    radial-gradient(ellipse at 58% 47%, rgba(177, 60, 255, 0.2), transparent 36%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 230, 238, 0.1), transparent 20%);
+  filter: blur(2px);
+  transform: rotate(-9deg) scaleX(1.28) scaleY(0.74);
+  opacity: 0.78;
+  animation: ckNebulaFlow 3.2s ease forwards;
+}
+
+.ck-galaxy-breach__grid {
+  z-index: -1;
+  background:
+    linear-gradient(rgba(255, 27, 45, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(177, 60, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0 47%, rgba(255, 27, 45, 0.12) 48%, transparent 50% 100%);
+  background-size: 54px 54px, 54px 54px, 260px 260px;
+  mask-image: radial-gradient(ellipse at center, #000 0 62%, transparent 88%);
+  opacity: 0.58;
+  transform: perspective(900px) rotateX(58deg) translateY(15vh) scale(1.4);
+  animation: ckGalaxyGrid 3.2s ease forwards;
+}
+
+.ck-galaxy-breach__scan {
+  z-index: 8;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.ck-galaxy-breach__scan--horizontal {
+  height: 2px;
+  top: -8%;
+  bottom: auto;
+  background: linear-gradient(90deg, transparent, rgba(255, 27, 45, 0.9), rgba(177, 60, 255, 0.86), transparent);
+  box-shadow: 0 0 18px rgba(255, 27, 45, 0.58), 0 0 34px rgba(177, 60, 255, 0.38);
+  animation: ckHorizontalScan 3.2s ease-out forwards;
+}
+
+.ck-galaxy-breach__scan--diagonal {
+  width: 1px;
+  left: 18%;
+  right: auto;
+  background: linear-gradient(180deg, transparent, rgba(255, 245, 248, 0.48), rgba(177, 60, 255, 0.36), transparent);
+  box-shadow: 0 0 18px rgba(177, 60, 255, 0.36);
+  transform: rotate(28deg) translateY(-120%);
+  transform-origin: top center;
+  animation: ckDiagonalScan 3.2s ease forwards;
+}
+
+.ck-galaxy-breach__nodes,
+.ck-galaxy-breach__code-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ck-galaxy-breach__nodes {
+  z-index: 1;
+}
+
+.ck-galaxy-breach__nodes span {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 235, 242, 0.9);
+  box-shadow: 0 0 10px rgba(255, 27, 45, 0.46), 0 0 18px rgba(177, 60, 255, 0.22);
+  opacity: 0;
+  animation: ckNodePulse 3.2s ease var(--delay) forwards;
+}
+
+.ck-galaxy-breach__code-field {
+  z-index: 2;
+}
+
+.ck-galaxy-breach__code {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  max-width: min(38vw, 340px);
+  color: rgba(255, 235, 242, 0.58);
+  font-family: var(--font-tech);
+  font-size: clamp(0.58rem, 1.35vw, 0.82rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 0 12px rgba(255, 27, 45, 0.34), 0 0 22px rgba(177, 60, 255, 0.18);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  animation: ckCodeDrift 3.2s ease var(--delay) forwards;
+}
+
+.ck-galaxy-breach__code:nth-child(2n) {
+  color: rgba(226, 206, 255, 0.52);
+  text-shadow: 0 0 12px rgba(177, 60, 255, 0.38);
+}
+
+.ck-galaxy-breach__core {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  justify-items: center;
+  width: min(88vw, 680px);
+  min-height: min(70vh, 540px);
+  transform-style: preserve-3d;
+  animation: ckCoreEnter 3.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ck-galaxy-breach__halo {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 27, 45, 0.32);
+  opacity: 0;
+  transform: translate3d(-50%, -54%, -38px) rotateX(68deg);
+  animation: ckHaloMaterialize 3.2s ease forwards;
+}
+
+.ck-galaxy-breach__halo--outer {
+  width: min(74vw, 560px);
+  box-shadow: 0 0 36px rgba(255, 27, 45, 0.2), inset 0 0 42px rgba(177, 60, 255, 0.12);
+}
+
+.ck-galaxy-breach__halo--inner {
+  width: min(48vw, 340px);
+  border-color: rgba(177, 60, 255, 0.34);
+  box-shadow: 0 0 28px rgba(177, 60, 255, 0.18);
+  animation-delay: 0.08s;
+}
+
+.ck-galaxy-breach__brand {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  display: grid;
+  place-items: center;
+  width: clamp(174px, 25vw, 260px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 30%, rgba(255, 255, 255, 0.18), transparent 22%),
+    radial-gradient(circle at 50% 50%, rgba(255, 27, 45, 0.2), transparent 54%),
+    linear-gradient(145deg, rgba(255, 27, 45, 0.12), rgba(177, 60, 255, 0.08));
+  box-shadow:
+    0 36px 90px rgba(0, 0, 0, 0.82),
+    0 0 64px rgba(255, 27, 45, 0.38),
+    0 0 98px rgba(177, 60, 255, 0.22),
+    inset 0 0 30px rgba(255, 255, 255, 0.07);
+  transform: translate3d(-50%, -58%, 94px) rotateX(14deg) rotateY(-16deg);
+  transform-style: preserve-3d;
+  animation: ckBrandBreach 3.2s ease forwards;
+}
+
+.ck-galaxy-breach__brand::before,
+.ck-galaxy-breach__brand::after {
+  position: absolute;
+  content: "";
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ck-galaxy-breach__brand::before {
+  inset: -14px;
+  border: 1px solid rgba(255, 27, 45, 0.34);
+  box-shadow: 0 0 28px rgba(255, 27, 45, 0.28);
+  transform: translateZ(-30px);
+}
+
+.ck-galaxy-breach__brand::after {
+  inset: 14px;
+  border: 1px solid rgba(177, 60, 255, 0.28);
+  box-shadow: inset 0 0 20px rgba(177, 60, 255, 0.1);
+  transform: translateZ(26px);
+}
+
+.ck-galaxy-breach__brand img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 22px 26px rgba(0, 0, 0, 0.72))
+    drop-shadow(0 0 26px rgba(255, 27, 45, 0.48))
+    drop-shadow(0 0 32px rgba(177, 60, 255, 0.24));
+  transform: translateZ(42px);
+}
+
+.ck-galaxy-breach__status {
+  position: absolute;
+  inset: calc(50% + clamp(126px, 18vw, 170px)) auto auto 50%;
+  width: min(88vw, 560px);
+  min-height: 1.55rem;
+  transform: translateX(-50%);
+  color: rgba(255, 245, 248, 0.9);
+  font-family: var(--font-tech);
+  font-size: clamp(0.82rem, 1.9vw, 1rem);
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(255, 27, 45, 0.64), 0 0 24px rgba(177, 60, 255, 0.28);
+}
+
+.ck-galaxy-breach__status span {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: ckStatusPhase 3.2s steps(1, end) forwards;
+}
+
+.ck-galaxy-breach__status span:nth-child(2) {
+  animation-delay: 1.7s;
+  color: #fff;
+}
+
+.ck-galaxy-breach__progress {
+  position: absolute;
+  inset: calc(50% + clamp(164px, 22vw, 214px)) auto auto 50%;
+  width: min(66vw, 370px);
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 1px rgba(255, 27, 45, 0.25), 0 0 22px rgba(177, 60, 255, 0.2);
+  transform: translateX(-50%);
+}
+
+.ck-galaxy-breach__progress i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--red-strong), var(--purple), #ffe5ee);
+  box-shadow: 0 0 16px rgba(255, 27, 45, 0.78), 0 0 26px rgba(177, 60, 255, 0.36);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: ckProgressFill 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ck-galaxy-breach__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@keyframes ckGalaxyExit {
+  0%,
+  84% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes ckGalaxyStars {
+  0% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+
+  24%,
+  82% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes ckNebulaFlow {
+  0% {
+    opacity: 0;
+    transform: rotate(-15deg) scaleX(1.18) scaleY(0.68);
+  }
+
+  20%,
+  84% {
+    opacity: 0.78;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(5deg) scaleX(1.36) scaleY(0.8);
+  }
+}
+
+@keyframes ckGalaxyGrid {
+  0% {
+    opacity: 0;
+    transform: perspective(900px) rotateX(62deg) translateY(18vh) scale(1.46);
+  }
+
+  100% {
+    opacity: 0.58;
+    transform: perspective(900px) rotateX(58deg) translateY(15vh) scale(1.4);
+  }
+}
+
+@keyframes ckHorizontalScan {
+  8% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  18%,
+  70% {
+    opacity: 1;
+  }
+
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateY(112vh);
+  }
+}
+
+@keyframes ckDiagonalScan {
+  12% {
+    opacity: 0;
+    transform: rotate(28deg) translateY(-120%);
+  }
+
+  30%,
+  66% {
+    opacity: 0.72;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(28deg) translateY(120%);
+  }
+}
+
+@keyframes ckNodePulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  22%,
+  80% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.74);
+  }
+}
+
+@keyframes ckCodeDrift {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+
+  18%,
+  78% {
+    opacity: 0.72;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift), -22px, 0);
+  }
+}
+
+@keyframes ckCoreEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) rotateX(10deg) scale(0.94);
+  }
+
+  18%,
+  84% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px) rotateX(0deg) scale(0.98);
+  }
+}
+
+@keyframes ckHaloMaterialize {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -54%, -38px) rotateX(68deg) scale(0.74);
+  }
+
+  18%,
+  82% {
+    opacity: 0.86;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, -54%, -38px) rotateX(68deg) scale(1.06);
+  }
+}
+
+@keyframes ckBrandBreach {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -58%, 94px) rotateX(22deg) rotateY(-24deg) scale(0.82);
+  }
+
+  18%,
+  84% {
+    opacity: 1;
+  }
+
+  54% {
+    transform: translate3d(-50%, -58%, 110px) rotateX(8deg) rotateY(10deg) scale(1.02);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, -62%, 88px) rotateX(0deg) rotateY(0deg) scale(0.98);
+  }
+}
+
+@keyframes ckStatusPhase {
+  0%,
+  52% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  53%,
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes ckProgressFill {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 720px) {
+  .ck-galaxy-breach__core {
+    width: 100vw;
+    min-height: min(72vh, 520px);
+  }
+
+  .ck-galaxy-breach__brand {
+    width: clamp(154px, 48vw, 198px);
+  }
+
+  .ck-galaxy-breach__halo--outer {
+    width: min(88vw, 390px);
+  }
+
+  .ck-galaxy-breach__halo--inner {
+    width: min(66vw, 286px);
+  }
+
+  .ck-galaxy-breach__code {
+    max-width: 72vw;
+    font-size: 0.58rem;
+  }
+
+  .ck-galaxy-breach__code:nth-child(n+7),
+  .ck-galaxy-breach__nodes span:nth-child(n+15) {
+    display: none;
+  }
+
+  .ck-galaxy-breach__status {
+    inset-block-start: calc(50% + 122px);
+    width: min(90vw, 340px);
+    font-size: clamp(0.74rem, 3.4vw, 0.86rem);
+  }
+
+  .ck-galaxy-breach__progress {
+    inset-block-start: calc(50% + 160px);
+    width: min(76vw, 300px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ck-loader,
+  .ck-galaxy-breach::before,
+  .ck-galaxy-breach__nebula,
+  .ck-galaxy-breach__grid,
+  .ck-galaxy-breach__scan,
+  .ck-galaxy-breach__nodes span,
+  .ck-galaxy-breach__code,
+  .ck-galaxy-breach__core,
+  .ck-galaxy-breach__halo,
+  .ck-galaxy-breach__brand,
+  .ck-galaxy-breach__status span,
+  .ck-galaxy-breach__progress i {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
+}

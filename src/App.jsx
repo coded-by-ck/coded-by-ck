@@ -10,59 +10,46 @@ import Differentials from './components/Differentials'
 import Tools from './components/Tools'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
-import logoCabecalho from './assets/logos/logo-cabecalho.png'
 import { useReveal } from './hooks/useReveal'
 
 function App() {
-  const [hasStarted, setHasStarted] = useState(false)
-  const [showLoader, setShowLoader] = useState(false)
+  const [showLoader, setShowLoader] = useState(true)
   const audioRef = useRef(null)
 
-  useReveal()
+  useReveal(!showLoader)
 
   useEffect(() => {
-    if (!hasStarted) return undefined
-
     const loaderTimer = window.setTimeout(() => {
       setShowLoader(false)
     }, 6000)
 
     return () => window.clearTimeout(loaderTimer)
-  }, [hasStarted])
+  }, [])
 
-  const handleStartProtocol = async () => {
-    if (hasStarted) return
+  useEffect(() => {
+    if (!showLoader) return undefined
 
-    setHasStarted(true)
-    setShowLoader(true)
+    let audio
 
     try {
-      const audio = new Audio('/audio/loader-sfx.mp3')
+      audio = new Audio('/audio/loader-sfx.mp3')
       audio.volume = 0.32
       audio.loop = false
       audioRef.current = audio
 
-      await audio.play()
+      audio.play().catch(() => {
+        audioRef.current = null
+      })
     } catch {
       audioRef.current = null
     }
-  }
 
-  if (!hasStarted) {
-    return (
-      <button className="protocol-gate" type="button" onClick={handleStartProtocol}>
-        <span className="protocol-gate__noise" aria-hidden="true" />
-        <span className="protocol-gate__grid" aria-hidden="true" />
-        <span className="protocol-gate__mark">
-          <img src={logoCabecalho} alt="" />
-        </span>
-        <span className="protocol-gate__eyebrow">Coded by CK</span>
-        <span className="protocol-gate__title">INICIAR PROTOCOLO</span>
-        <span className="protocol-gate__action">CLICK TO BREACH</span>
-        <span className="protocol-gate__scan" aria-hidden="true" />
-      </button>
-    )
-  }
+    return () => {
+      if (!audio) return
+      audio.pause()
+      audioRef.current = null
+    }
+  }, [showLoader])
 
   if (showLoader) {
     return <Loader />
