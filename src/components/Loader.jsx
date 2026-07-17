@@ -20,27 +20,23 @@ const systemLogs = [
 const scanTags = ['TRACE', 'DECRYPT', 'INJECT', 'OVERRIDE', 'ROOT', 'CK']
 
 const dataStreams = [
+  'const portfolio = "Coded by CK";',
+  'function initInterface() {}',
+  'npm run build',
+  'git push origin main',
+  '<HeroSection />',
+  '<ProjectsSection />',
+  'await loadExperience();',
+  'deploy.status = "ready";',
+  'system.boot("ck-portfolio");',
+  'interface.render();',
   'CK_PAYLOAD_INJECTED',
   'SIGNAL_INTERCEPTED',
   'TARGET_LOCKED',
   'BREACH_ACTIVE',
-  'BYPASS_FIREWALL',
-  '0xCK13',
   '0xCK_PROTOCOL',
-  'ROOT_ACCESS',
-  'A7F9',
-  'PAYLOAD_ARMED',
-  'SYSTEM_OVERRIDE',
-  'ROOT_ACCESS_GRANTED',
-  'FF03',
   'ACCESS_GRANTED',
-  'DECRYPTING_SOURCE',
-  'cipher.rotate()',
-  'ACCESS_LAYER_OPEN',
-  'BREACH_PROTOCOL',
-  'CK_INTERFACE',
   'CK_INTERFACE_ONLINE',
-  'E1B4',
 ]
 
 const galaxyArms = Array.from({ length: 160 }, (_, index) => {
@@ -126,7 +122,7 @@ const constellations = Array.from({ length: 24 }, (_, index) => ({
 }))
 
 const codeFragments = Array.from({ length: 24 }, (_, index) => {
-  const labels = ['CK_PAYLOAD_INJECTED', 'ROOT_ACCESS_GRANTED', 'SYSTEM_OVERRIDE', 'SIGNAL_INTERCEPTED', 'BYPASS_FIREWALL', '0xCK_PROTOCOL', 'DECRYPTING_SOURCE', 'ACCESS_LAYER_OPEN']
+  const labels = ['const portfolio = "Coded by CK";', 'function initInterface() {}', 'npm run build', 'git push origin main', '<HeroSection />', '<ProjectsSection />', 'await loadExperience();', 'deploy.status = "ready";']
   const angle = (index * 37 + 12) % 360
   const mid = angle + 52
   const end = angle + 128
@@ -146,7 +142,7 @@ const codeFragments = Array.from({ length: 24 }, (_, index) => {
 })
 
 const ambientCodeLogs = Array.from({ length: 22 }, (_, index) => {
-  const labels = ['CK_PAYLOAD_INJECTED', 'ROOT_ACCESS_GRANTED', 'SYSTEM_OVERRIDE', 'SIGNAL_INTERCEPTED', 'BYPASS_FIREWALL', '0xCK_PROTOCOL', 'DECRYPTING_SOURCE', 'ACCESS_LAYER_OPEN']
+  const labels = ['system.boot("ck-portfolio");', 'interface.render();', 'const portfolio = "Coded by CK";', 'await loadExperience();', '<HeroSection />', '<ProjectsSection />', 'deploy.status = "ready";', 'npm run build']
 
   return {
     id: `ambient-code-${index}`,
